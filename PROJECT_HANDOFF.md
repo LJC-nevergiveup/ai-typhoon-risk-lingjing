@@ -290,6 +290,7 @@ REAL 数据包内容与状态（磁盘已核对）：
 
 ## Git 信息（本文件生成时）
 
-- 仓库：**此前从未 git init**；本会话交接时执行了 `git init` + 初始提交（见最后报告）。
-- 未提交修改：见初始提交后的 `git status`（初始提交应覆盖全部代码与文档；
-  大二进制原始数据与用户备份按 .gitignore 排除）。
+- 仓库：本会话交接时执行 `git init`（此前从未建库）。
+- Branch：`master`；最近提交：`5b99585 Initial commit: AI typhoon risk realm - six-chapter science communication web app (Rounds 1-6 complete)`（99 个文件，13,785 行）。
+- 工作区：初始提交后干净（无未提交修改）。
+- 已按 .gitignore 排除：node_modules、dist、.npm-cache、大体积原始二进制（raw 下 tif/NC/JPG/gpkg.gz/zip）与用户备份（卫星云图.zip、卫星云图/）。这些文件仍保留在磁盘，但不在版本库中。
