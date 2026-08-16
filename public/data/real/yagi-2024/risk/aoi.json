@@ -1,0 +1,36 @@
+{
+  "id": "hainan-qiongzhou-leizhou",
+  "name": "海南北部—琼州海峡—雷州半岛（YAGI 两次登陆区域）",
+  "bbox": [108.2, 18.9, 111.6, 21.2],
+  "gridResolution": 0.01,
+  "purpose": "science-communication-only",
+  "disclaimer": "本结果为科普型空间分析，用于解释不同地点风险为何存在空间差异，不属于官方灾害风险预报；实际防灾避险以气象/应急部门官方预警为准。",
+  "elevationBands": [
+    { "label": "0–5 m（低洼）", "min": 0, "max": 5 },
+    { "label": "5–10 m", "min": 5, "max": 10 },
+    { "label": "10–30 m", "min": 10, "max": 30 },
+    { "label": "> 30 m", "min": 30, "max": null }
+  ],
+  "factors": {
+    "terrain": { "source": "Copernicus DEM GLO-30", "unit": "m", "note": "低海拔不代表一定会被淹没，仅提示地形关注程度" },
+    "population": { "source": "WorldPop 2020（100m，人数/像元）", "unit": "人/km²", "note": "人口暴露（exposure），不代表伤亡风险" },
+    "proximity": { "source": "NMC 台风网历史轨迹（derived）", "unit": "km", "note": "台风路径邻近度 ≠ 风圈/风速影响范围" }
+  },
+  "attentionRule": {
+    "description": "确定性、可审计的三因子规则（非模型权重调参）",
+    "classes": {
+      "terrainHigh": "陆地且高程 ≤ 5 m",
+      "terrainMed": "陆地且 5 < 高程 ≤ 10 m",
+      "popHigh": "人口密度 ≥ 2000 人/km²",
+      "popMed": "500 ≤ 人口密度 < 2000 人/km²",
+      "proxHigh": "距 YAGI 真实路径 ≤ 50 km",
+      "proxMed": "50 < 距路径 ≤ 100 km"
+    },
+    "rule": [
+      "highCount = 满足 high 条件因子数；medCount = 满足 med 条件因子数（海域不计地形与人口条件）",
+      "highCount >= 2 → 重点关注",
+      "highCount == 1 或 medCount >= 2 → 较高关注",
+      "其余 → 一般关注"
+    ]
+  }
+}

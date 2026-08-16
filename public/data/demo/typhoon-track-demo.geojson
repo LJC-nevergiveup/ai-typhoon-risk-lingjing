@@ -1,0 +1,22 @@
+{
+  "type": "FeatureCollection",
+  "demo": true,
+  "description": "合成演示路径：不代表任何真实台风，仅用于界面与流程验证。",
+  "features": [
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [141.0, 13.8] }, "properties": { "id": "p01", "time": "2025-07-20T00:00:00Z", "wind": 18, "pressure": 998, "category": "热带风暴", "r7": 180, "r10": 80, "r12": 0 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [139.4, 14.6] }, "properties": { "id": "p02", "time": "2025-07-20T06:00:00Z", "wind": 20, "pressure": 995, "category": "热带风暴", "r7": 200, "r10": 100, "r12": 0 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [137.8, 15.5] }, "properties": { "id": "p03", "time": "2025-07-20T12:00:00Z", "wind": 23, "pressure": 990, "category": "热带风暴", "r7": 220, "r10": 120, "r12": 40 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [136.0, 16.5] }, "properties": { "id": "p04", "time": "2025-07-20T18:00:00Z", "wind": 26, "pressure": 982, "category": "强热带风暴", "r7": 250, "r10": 140, "r12": 60 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [134.0, 17.6] }, "properties": { "id": "p05", "time": "2025-07-21T00:00:00Z", "wind": 30, "pressure": 970, "category": "强热带风暴", "r7": 280, "r10": 160, "r12": 70 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [131.9, 18.8] }, "properties": { "id": "p06", "time": "2025-07-21T06:00:00Z", "wind": 35, "pressure": 958, "category": "台风", "r7": 300, "r10": 180, "r12": 80 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [129.8, 20.0] }, "properties": { "id": "p07", "time": "2025-07-21T12:00:00Z", "wind": 40, "pressure": 945, "category": "台风", "r7": 320, "r10": 200, "r12": 90 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [127.8, 21.3] }, "properties": { "id": "p08", "time": "2025-07-21T18:00:00Z", "wind": 45, "pressure": 935, "category": "强台风", "r7": 350, "r10": 220, "r12": 100 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [126.0, 22.7] }, "properties": { "id": "p09", "time": "2025-07-22T00:00:00Z", "wind": 48, "pressure": 928, "category": "强台风", "r7": 360, "r10": 230, "r12": 110 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [124.6, 24.1] }, "properties": { "id": "p10", "time": "2025-07-22T06:00:00Z", "wind": 52, "pressure": 920, "category": "超强台风", "r7": 380, "r10": 240, "r12": 120 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [124.2, 25.7] }, "properties": { "id": "p11", "time": "2025-07-22T12:00:00Z", "wind": 50, "pressure": 925, "category": "强台风", "r7": 360, "r10": 230, "r12": 110 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [125.4, 27.2] }, "properties": { "id": "p12", "time": "2025-07-22T18:00:00Z", "wind": 45, "pressure": 935, "category": "强台风", "r7": 330, "r10": 210, "r12": 100 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [127.2, 29.0] }, "properties": { "id": "p13", "time": "2025-07-23T00:00:00Z", "wind": 40, "pressure": 945, "category": "台风", "r7": 300, "r10": 190, "r12": 90 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [129.4, 31.2] }, "properties": { "id": "p14", "time": "2025-07-23T06:00:00Z", "wind": 35, "pressure": 955, "category": "台风", "r7": 260, "r10": 170, "r12": 80 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [131.8, 33.6] }, "properties": { "id": "p15", "time": "2025-07-23T12:00:00Z", "wind": 30, "pressure": 965, "category": "强热带风暴", "r7": 220, "r10": 140, "r12": 60 } }
+  ]
+}

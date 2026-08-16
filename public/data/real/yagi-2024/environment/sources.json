@@ -1,0 +1,39 @@
+{
+  "status": "active",
+  "note": "环境观测资料（卫星云图与 SST）的实际数据来源清单。卫星云图采用风云四号 B 星官方真彩产品（用户人工下载）；SST 展示采用 NOAA Coral Reef Watch 官方日分析场，FY-4B AGRI SST 官方产品作为观测证据（该时次受云覆盖，有效像元仅约 1%）。",
+  "sources": [
+    {
+      "organization": "国家卫星气象中心（NSMC / 中国气象局）",
+      "datasetName": "风云四号 B 星（FY-4B）AGRI 真彩图像产品（全圆盘 1000M，GCLR，IMG）",
+      "url": "https://satellite.nsmc.org.cn/",
+      "accessDate": "2026-08-15",
+      "description": "FY-4B AGRI 真彩（GCLR）L2 图像产品，6 个代表时刻（2024-09-01~09-06）。用户自风云卫星遥感数据服务网人工下载原始 JPG；经 scripts/import_fy4b_env.py 由标称网格（nominal subpoint 105°E）重投影至 EPSG:4326 并裁剪到 105–140°E、5–30°N（处理步骤见各帧 processing）。",
+      "licenseOrUsageNote": "中国气象局官方数据，科研与教育用途，注明来源",
+      "role": "primary",
+      "scope": "卫星云图（environment/satellite）实际数据来源",
+      "sourceType": "satellite"
+    },
+    {
+      "organization": "国家卫星气象中心（NSMC / 中国气象局）",
+      "datasetName": "风云四号 B 星（FY-4B）AGRI 海表温度（SST）L2 产品（全圆盘 4KM）",
+      "url": "https://data.nsmc.org.cn/",
+      "accessDate": "2026-08-15",
+      "description": "FY-4B AGRI SST L2 官方产品（NetCDF，°C），2024-09-01 与 09-05 两日，存于 public/data/raw/nsmc/。该时次区域内高质量像元（DQF≤1）仅约 1%（台风云系覆盖），有效像元均值 09-01 约 28.8°C、09-05 约 28.4°C，作为观测证据保留，不用于展示图层。",
+      "licenseOrUsageNote": "中国气象局官方数据，科研与教育用途，注明来源",
+      "role": "cross-validation",
+      "scope": "SST 观测证据（云覆盖，稀疏）",
+      "sourceType": "ocean-observation"
+    },
+    {
+      "organization": "NOAA Coral Reef Watch / NOAA CoastWatch ERDDAP",
+      "datasetName": "NOAA Coral Reef Watch Daily Global 5km Satellite SST (CoralTemp), 1985-present",
+      "url": "https://coastwatch.noaa.gov/erddap/griddap/noaacrwsstDaily.html",
+      "accessDate": "2026-08-15",
+      "description": "NOAA 官方全球日海表温度分析场（0.05°，°C），2024-09-01 与 09-05 两日，覆盖完整、无云隙。经 NOAA CoastWatch ERDDAP 公开接口下载数据（CSV，免登录），本地色带渲染（scripts/import_crw_sst.py），数值未修改；用于 SST 展示图层，与 FY-4B 观测证据量级一致。",
+      "licenseOrUsageNote": "NOAA 公开数据，引用注明 Coral Reef Watch / ERDDAP",
+      "role": "primary",
+      "scope": "SST 展示图层（environment/sst）实际数据来源",
+      "sourceType": "ocean-observation"
+    }
+  ]
+}

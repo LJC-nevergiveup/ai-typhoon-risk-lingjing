@@ -1,0 +1,35 @@
+{
+  "aoi": [
+    108.2,
+    18.9,
+    111.6,
+    21.2
+  ],
+  "grid": {
+    "cols": 340,
+    "rows": 230,
+    "resolution": 0.01,
+    "crs": "EPSG:4326"
+  },
+  "purpose": "science-communication-only",
+  "disclaimer": "本结果为科普型空间分析，不属于官方灾害风险预报；实际防灾避险以官方预警为准。",
+  "inputs": {
+    "terrain": "Copernicus DEM GLO-30（原始数据）",
+    "population": "WorldPop 2020（原始数据）",
+    "proximity": "NMC 台风网历史轨迹 → 最小测地距离（derived-analysis）"
+  },
+  "rule": [
+    "terrainHigh=陆地且高程≤5m；terrainMed=5<高程≤10m",
+    "popHigh=密度≥2000人/km²；popMed=500≤密度<2000",
+    "proxHigh=距路径≤50km；proxMed=50<距路径≤100km",
+    "highCount≥2 → 重点关注",
+    "highCount==1 或 medCount≥2 → 较高关注",
+    "其余 → 一般关注",
+    "海域不计地形与人口条件"
+  ],
+  "classCounts": {
+    "一般关注": 39876,
+    "较高关注": 36762,
+    "重点关注": 1562
+  }
+}

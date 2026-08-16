@@ -1,0 +1,45 @@
+{
+  "aoi": [
+    108.2,
+    18.9,
+    111.6,
+    21.2
+  ],
+  "grid": {
+    "cols": 340,
+    "rows": 230,
+    "resolution": 0.01,
+    "crs": "EPSG:4326"
+  },
+  "source": "Copernicus DEM GLO-30 (AWS Open Data)",
+  "landMask": "Natural Earth 110m land polygons（海岸线掩膜，区分海面 0 值与陆地）",
+  "sourceFiles": [
+    "Copernicus_DSM_COG_10_N18_00_E108_00_DEM.tif",
+    "Copernicus_DSM_COG_10_N18_00_E109_00_DEM.tif",
+    "Copernicus_DSM_COG_10_N18_00_E110_00_DEM.tif",
+    "Copernicus_DSM_COG_10_N19_00_E108_00_DEM.tif",
+    "Copernicus_DSM_COG_10_N19_00_E109_00_DEM.tif",
+    "Copernicus_DSM_COG_10_N19_00_E110_00_DEM.tif",
+    "Copernicus_DSM_COG_10_N19_00_E111_00_DEM.tif",
+    "Copernicus_DSM_COG_10_N20_00_E109_00_DEM.tif",
+    "Copernicus_DSM_COG_10_N20_00_E110_00_DEM.tif",
+    "Copernicus_DSM_COG_10_N21_00_E108_00_DEM.tif",
+    "Copernicus_DSM_COG_10_N21_00_E109_00_DEM.tif",
+    "Copernicus_DSM_COG_10_N21_00_E110_00_DEM.tif",
+    "Copernicus_DSM_COG_10_N21_00_E111_00_DEM.tif"
+  ],
+  "elevation": {
+    "min": -0.2588655948638916,
+    "max": 1614.2860107421875,
+    "mean": 53.780174255371094
+  },
+  "bandCounts": {
+    "0–5 m（低洼）": 4309,
+    "5–10 m": 1146,
+    "10–30 m": 4931,
+    "> 30 m": 18314
+  },
+  "seaCellCount": 49498,
+  "noDataCount": 49498,
+  "note": "4 个纯海域边缘瓦片在 AWS 桶中不存在（GLO-30 不含海洋瓦片），按 NoData（海域）处理；海洋不参与高程分级。"
+}

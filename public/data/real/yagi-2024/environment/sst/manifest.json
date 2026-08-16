@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "status": "available",
+  "note": "由 scripts/import_crw_sst.py 生成：NOAA Coral Reef Watch 官方日 SST 分析场（CoralTemp，°C），数值未修改。FY-4B AGRI SST 官方产品（用户自风云数据服务网下载，存于 raw/nsmc）在该时次区域内高质量像元仅约 1%（台风云系覆盖），其有效像元均值（09-01 约 28.8°C / 09-05 约 28.4°C，仅极少量晴空像元，受采样影响）与本分析场（约 30°C）量级一致、同为暖水背景；展示图层使用完整分析场以保证海温空间分布可读。",
+  "frames": [
+    {
+      "id": "noaa-crw-sst-20240901",
+      "date": "2024-09-01",
+      "satellite": "多源卫星融合（NOAA-20 VIIRS 等）",
+      "instrument": "CoralTemp（5km 全球日分析）",
+      "product": "NOAA Coral Reef Watch Daily Global 5km Satellite SST (CoralTemp)",
+      "imagePath": "real/yagi-2024/environment/sst/imagery/noaa-crw-sst-20240901.png",
+      "bbox": [
+        105.0,
+        5.0,
+        140.0,
+        30.0
+      ],
+      "unit": "°C",
+      "valueRange": [
+        25.5,
+        31.9
+      ],
+      "source": "NOAA Coral Reef Watch / NOAA CoastWatch ERDDAP",
+      "sourceUrl": "https://coastwatch.noaa.gov/erddap/griddap/noaacrwsstDaily.html",
+      "sourceType": "ocean-observation",
+      "processing": [
+        "downloaded official data (CSV) via NOAA CoastWatch ERDDAP",
+        "gridded to equirectangular 105-140E, 5-30N (values unmodified)",
+        "color-mapped locally: custom blue-red palette over valueRange (degC)",
+        "land / missing pixels rendered gray",
+        "saved as PNG (web format)"
+      ],
+      "legend": "蓝→红渐变色带（25.5–31.9 °C）；灰色=陆地/无数据"
+    },
+    {
+      "id": "noaa-crw-sst-20240905",
+      "date": "2024-09-05",
+      "satellite": "多源卫星融合（NOAA-20 VIIRS 等）",
+      "instrument": "CoralTemp（5km 全球日分析）",
+      "product": "NOAA Coral Reef Watch Daily Global 5km Satellite SST (CoralTemp)",
+      "imagePath": "real/yagi-2024/environment/sst/imagery/noaa-crw-sst-20240905.png",
+      "bbox": [
+        105.0,
+        5.0,
+        140.0,
+        30.0
+      ],
+      "unit": "°C",
+      "valueRange": [
+        25.6,
+        32.4
+      ],
+      "source": "NOAA Coral Reef Watch / NOAA CoastWatch ERDDAP",
+      "sourceUrl": "https://coastwatch.noaa.gov/erddap/griddap/noaacrwsstDaily.html",
+      "sourceType": "ocean-observation",
+      "processing": [
+        "downloaded official data (CSV) via NOAA CoastWatch ERDDAP",
+        "gridded to equirectangular 105-140E, 5-30N (values unmodified)",
+        "color-mapped locally: custom blue-red palette over valueRange (degC)",
+        "land / missing pixels rendered gray",
+        "saved as PNG (web format)"
+      ],
+      "legend": "蓝→红渐变色带（25.6–32.4 °C）；灰色=陆地/无数据"
+    }
+  ]
+}

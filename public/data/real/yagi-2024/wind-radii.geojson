@@ -1,0 +1,16 @@
+{
+  "type": "FeatureCollection",
+  "status": "awaiting-authoritative-data",
+  "schemaVersion": 1,
+  "note": "风圈数据待接入。部分权威数据源不提供风圈字段，允许缺失（系统会回退到轨迹点中的 windRadius7/10/12 字段，或视为无风圈数据）。数据模型允许 sparse wind-radius observations：只记录实际获得的离散时刻风圈，禁止插值成“官方完整风圈序列”；任何插值/派生结果必须明确标记 derived/interpolated。录入后请将 status 改为 available。",
+  "schema": {
+    "geometry": "Polygon（以轨迹点为圆心的近似圆，首尾闭合）",
+    "properties": {
+      "pointId": "string · 对应 track.geojson 中的时次 id",
+      "level": "number · 风圈等级：7 / 10 / 12",
+      "radius": "number · 半径（km）",
+      "source": "string · 可选，来源标识"
+    }
+  },
+  "features": []
+}

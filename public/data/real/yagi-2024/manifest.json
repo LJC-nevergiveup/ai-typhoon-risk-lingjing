@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "yagi-2024",
+  "chineseName": "摩羯",
+  "englishName": "Yagi",
+  "year": 2024,
+  "typhoonNumber": "2411",
+  "basin": "西北太平洋",
+  "startTime": "2024-09-01T00:00:00Z",
+  "endTime": "2024-09-08T12:00:00Z",
+  "status": "available",
+  "description": "2024 年第 11 号台风“摩羯”（Yagi）。轨迹已接入中国气象局台风网官方历史台风数据（36 个时次，2024-09-01 00:00 UTC — 2024-09-08 12:00 UTC，峰值 62 m/s / 915 hPa）。登陆点与风圈数据仍待接入（landfalls.geojson / wind-radii.geojson 保持占位，未伪造）。",
+  "files": {
+    "track": "track.geojson",
+    "landfalls": "landfalls.geojson",
+    "windRadii": "wind-radii.geojson",
+    "sources": "sources.json"
+  }
+}

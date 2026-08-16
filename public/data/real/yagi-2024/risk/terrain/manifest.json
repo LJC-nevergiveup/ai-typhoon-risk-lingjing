@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "status": "available",
+  "id": "terrain",
+  "label": "地形（低海拔分级）",
+  "imagePath": "real/yagi-2024/risk/terrain/terrain-lowland.png",
+  "bbox": [
+    108.2,
+    18.9,
+    111.6,
+    21.2
+  ],
+  "legend": "红=0–5 m（低洼）｜橙=5–10 m｜黄=10–30 m｜绿=>30 m｜浅蓝=海域（无高程数据）",
+  "source": "Copernicus DEM GLO-30",
+  "sourceUrl": "https://registry.opendata.aws/copernicus-dem/",
+  "sourceType": "terrain",
+  "year": 2022,
+  "resolution": "30 m（重采样至 0.01°）",
+  "unit": "m",
+  "processing": [
+    "downloaded Copernicus DEM GLO-30 1-degree COG tiles (AWS Open Data, no login)",
+    "merged 13 tiles over AOI 108.2-111.6E, 18.9-21.2N",
+    "land/sea mask from Natural Earth 110m coastline (GLO-30 coastal tiles contain 0-m sea values)",
+    "resampled to 0.01-degree grid (bilinear)",
+    "classified elevation bands 0-5/5-10/10-30/>30 m (land only)",
+    "rendered to PNG for web display",
+    "no elevation values modified"
+  ],
+  "disclaimer": "低海拔不代表一定会被淹没；本图层仅提示地形关注程度。"
+}

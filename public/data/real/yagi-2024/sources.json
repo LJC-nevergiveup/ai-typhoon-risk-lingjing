@@ -1,0 +1,72 @@
+{
+  "status": "active",
+  "note": "数据来源清单与角色分工。历史轨迹（historical-track）与登陆业务通报（operational-bulletin）严格区分，绝不混合生成数值。",
+  "sources": [
+    {
+      "organization": "China Meteorological Administration（中国气象局台风网）",
+      "datasetName": "台风网历史台风数据（最佳路径分析）",
+      "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+      "accessDate": "2026-08-15",
+      "description": "中国气象局台风网官方历史台风数据，含逐时次定位（UTC）、等级、中心气压与最大风速；本项目 track.geojson 由该数据经 scripts/import-nmc-track.ts 生成（原始文件存于 public/data/raw/nmc/）。",
+      "licenseOrUsageNote": "中国气象局官方公开数据，科研与教育用途，使用时请注明来源",
+      "role": "primary",
+      "scope": "轨迹（track）实际数据来源",
+      "sourceType": "historical-track"
+    },
+    {
+      "organization": "中国气象局上海台风研究所",
+      "datasetName": "CMA Tropical Cyclone Best Track Dataset（CMA-BST）",
+      "url": "https://tcdata.typhoon.org.cn/",
+      "accessDate": "2026-08-15",
+      "description": "CMA 热带气旋最佳路径数据集（CH2024BST.txt）。站点部署 WAF（JS 挑战），当前无法程序化下载；取得文件后将经 scripts/import-cma-best-track.ts 与现轨迹交叉核验。",
+      "licenseOrUsageNote": "科研与教育用途，使用时请注明数据来源",
+      "role": "cross-validation",
+      "scope": "轨迹交叉核验（文件待获取）",
+      "sourceType": "historical-track"
+    },
+    {
+      "organization": "NOAA NCEI",
+      "datasetName": "IBTrACS（国际热带气旋最佳路径档案）",
+      "url": "https://www.ncei.noaa.gov/products/international-best-track-archive",
+      "accessDate": "2026-08-15",
+      "description": "汇集全球各区域专业气象中心最佳路径数据的国际档案，用于轨迹交叉核验。",
+      "licenseOrUsageNote": "公开数据，引用时注明 IBTrACS 与各贡献机构",
+      "role": "cross-validation",
+      "scope": "轨迹交叉核验",
+      "sourceType": "historical-track"
+    },
+    {
+      "organization": "日本气象厅（JMA）",
+      "datasetName": "RSMC Tokyo 最佳路径数据",
+      "url": "https://www.jma.go.jp/jma/jma-eng/jma-center/rsmc-hp-pub-eg/besttrack.html",
+      "accessDate": "2026-08-15",
+      "description": "西北太平洋区域专业气象中心（RSMC Tokyo）发布的最佳路径数据，用于轨迹交叉核验。",
+      "licenseOrUsageNote": "使用时请注明 JMA / RSMC Tokyo",
+      "role": "cross-validation",
+      "scope": "轨迹交叉核验",
+      "sourceType": "historical-track"
+    },
+    {
+      "organization": "中央气象台（NMC）",
+      "datasetName": "台风快讯 · “摩羯”第一次登陆（海南文昌）",
+      "url": "https://www.hainan.gov.cn/hainan/5309/202409/503cf0153a6045d483cf1fd93f3c61b5.shtml",
+      "accessDate": "2026-08-15",
+      "description": "2024-09-06 16:20 北京时间“摩羯”在海南省文昌市翁田镇沿海登陆的业务通报：超强台风级，最大风力 17 级以上（62 m/s），最低气压 915 hPa（原文：“登陆时其中心附近最大风力17级以上（62米/秒），中心最低气压915hPa”）。本项目 landfalls.geojson 第 1 次登陆的数值来源。",
+      "licenseOrUsageNote": "引用业务通报数值，注明发布机构与时间",
+      "role": "primary",
+      "scope": "登陆事件（第 1 次登陆）数值来源",
+      "sourceType": "operational-bulletin"
+    },
+    {
+      "organization": "中央气象台（NMC）",
+      "datasetName": "台风快讯 · “摩羯”第二次登陆（广东徐闻）",
+      "url": "https://qq.weather.com.cn/news/2024/09/3872661.shtml",
+      "accessDate": "2026-08-15",
+      "description": "2024-09-06 22:20 北京时间“摩羯”在广东省湛江市徐闻县角尾乡沿海再次登陆的业务通报：超强台风级，最大风力 17 级（58 m/s），最低气压 925 hPa（原文：“登陆时中心附近最大风力17级（58米/秒），中心最低气压925百帕”；央广网转载广东省气象台消息 http://news.cnr.cn/rebang/20240906/t20240906_526891685.shtml）。本项目 landfalls.geojson 第 2 次登陆的数值来源。",
+      "licenseOrUsageNote": "引用业务通报数值，注明发布机构与时间",
+      "role": "primary",
+      "scope": "登陆事件（第 2 次登陆）数值来源",
+      "sourceType": "operational-bulletin"
+    }
+  ]
+}

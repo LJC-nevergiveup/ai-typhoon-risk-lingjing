@@ -1,0 +1,100 @@
+.panel {
+  width: 212px;
+  background: var(--c-panel);
+  border: 1px solid var(--c-border-strong);
+  border-radius: 8px;
+  padding: 10px 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.title {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--c-text-dim);
+  margin-bottom: 6px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.item:hover {
+  background: var(--c-panel-2);
+}
+
+.checkbox {
+  accent-color: var(--c-accent);
+  width: 14px;
+  height: 14px;
+  flex: none;
+  cursor: pointer;
+}
+
+.swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.label {
+  font-size: 13px;
+  color: var(--c-text);
+}
+
+.hint {
+  font-size: 11px;
+  color: var(--c-text-faint);
+}
+
+.foot {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--c-border);
+  font-size: 11px;
+  color: var(--c-text-faint);
+}
+
+.itemDisabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.sliderRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 8px 6px 26px;
+}
+
+.sliderLabel {
+  font-size: 11px;
+  color: var(--c-text-faint);
+  flex: none;
+}
+
+.slider {
+  flex: 1;
+  accent-color: var(--c-accent);
+  cursor: pointer;
+}
+
+.sliderValue {
+  font-size: 11px;
+  color: var(--c-text-dim);
+  font-variant-numeric: tabular-nums;
+  flex: none;
+  min-width: 32px;
+  text-align: right;
+}

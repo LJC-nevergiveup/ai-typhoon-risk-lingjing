@@ -1,0 +1,147 @@
+.timeline {
+  background: var(--c-panel);
+  border: 1px solid var(--c-border-strong);
+  border-radius: 8px;
+  padding: 10px 14px 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--c-border-strong);
+  border-radius: 6px;
+  background: var(--c-panel-2);
+  color: var(--c-text);
+  font-size: 12px;
+}
+
+.btn:hover:not(:disabled) {
+  border-color: var(--c-accent);
+  color: var(--c-accent-soft);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.playBtn {
+  width: 32px;
+  color: var(--c-accent-soft);
+}
+
+.range {
+  flex: 1;
+  accent-color: var(--c-accent);
+  cursor: pointer;
+}
+
+.range:disabled {
+  cursor: not-allowed;
+}
+
+.time {
+  flex: none;
+  font-size: 13px;
+  color: var(--c-accent-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.category {
+  flex: none;
+  font-size: 11px;
+  color: var(--c-warn);
+  border: 1px solid var(--c-border-strong);
+  background: var(--c-panel-2);
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.note {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--c-text-faint);
+}
+
+/* ---- 事件标记 ---- */
+
+.markerRow {
+  position: relative;
+  height: 20px;
+  margin-top: 4px;
+}
+
+.marker {
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--c-danger);
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.marker:hover {
+  color: var(--c-accent-soft);
+}
+
+.markerActive {
+  color: var(--c-yellow);
+}
+
+.markerLabel {
+  font-size: 10px;
+  color: var(--c-text-dim);
+  white-space: nowrap;
+}
+
+.markerActive .markerLabel {
+  color: var(--c-yellow);
+}
+
+.eventInfo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--c-border);
+  font-size: 11px;
+  color: var(--c-text-dim);
+}
+
+.eventDot {
+  color: var(--c-danger);
+  flex: none;
+}
+
+.eventTime {
+  color: var(--c-accent-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.eventDesc {
+  color: var(--c-text-faint);
+}

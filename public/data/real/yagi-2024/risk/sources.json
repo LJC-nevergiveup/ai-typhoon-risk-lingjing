@@ -1,0 +1,37 @@
+{
+  "sources": [
+    {
+      "organization": "Copernicus（欧洲空间局 / 欧盟）",
+      "datasetName": "Copernicus DEM GLO-30（30 m 全球数字高程模型）",
+      "url": "https://registry.opendata.aws/copernicus-dem/",
+      "accessDate": "2026-08-16",
+      "description": "地形/低海拔因子（原始数据，高程未修改）；4 个纯海域边缘瓦片不存在，海域按 NoData 处理。",
+      "licenseOrUsageNote": "Copernicus 开放许可，注明来源",
+      "role": "primary",
+      "scope": "地形因子（terrain）",
+      "sourceType": "terrain"
+    },
+    {
+      "organization": "WorldPop（University of Southampton）",
+      "datasetName": "中国 2020 年 100m 人口（unconstrained）",
+      "url": "https://www.worldpop.org/",
+      "accessDate": "2026-08-16",
+      "description": "人口暴露因子（原始数据）；100m 像元按 0.01° 网格求和为人数，再换算密度（人/km²），数值未修改。",
+      "licenseOrUsageNote": "CC BY 4.0，注明 WorldPop",
+      "role": "primary",
+      "scope": "人口暴露因子（population）",
+      "sourceType": "population"
+    },
+    {
+      "organization": "中国气象局台风网（NMC）",
+      "datasetName": "YAGI 历史轨迹（36 点）",
+      "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+      "accessDate": "2026-08-15",
+      "description": "路径邻近度因子的输入（derived-analysis：最小测地距离，方法见 proximity-summary.json）。",
+      "licenseOrUsageNote": "中国气象局官方数据，注明来源",
+      "role": "primary",
+      "scope": "路径邻近度（proximity）输入",
+      "sourceType": "derived-analysis"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "status": "available",
+  "id": "population",
+  "label": "人口暴露",
+  "imagePath": "real/yagi-2024/risk/population/population.png",
+  "bbox": [
+    108.2,
+    18.9,
+    111.6,
+    21.2
+  ],
+  "legend": "深紫→紫→橙→黄 = 人口密度（对数色带，10~31623 人/km²）；深灰=无人口数据",
+  "source": "Kontur Population（HDX 公开数据，基于 GHSL/WorldPop 等开源输入）",
+  "sourceUrl": "https://data.humdata.org/dataset/kontur-population-china",
+  "sourceType": "population",
+  "year": 2023,
+  "resolution": "400m H3 六边形 → 聚合至 0.01°",
+  "unit": "人/km²（六边形质心归入网格求和）",
+  "processing": [
+    "downloaded official Kontur Population China gpkg (HDX, no login)",
+    "spatially filtered to AOI 108.2-111.6E, 18.9-21.2N via bbox",
+    "hexagon population assigned to 0.01-degree grid cells by centroid (SUM)",
+    "converted to density (people per km2, latitude-dependent cell area)",
+    "log-scaled colormap for web display",
+    "no population values modified"
+  ],
+  "disclaimer": "人口暴露（exposure）只表示人口的空间分布，不代表伤亡风险。"
+}

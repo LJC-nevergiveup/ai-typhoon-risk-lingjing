@@ -1,0 +1,1198 @@
+{
+  "type": "FeatureCollection",
+  "status": "available",
+  "schemaVersion": 1,
+  "generatedBy": "scripts/import-nmc-track.ts",
+  "generatedAt": "2026-08-16T01:36:18.571Z",
+  "note": "由中国气象局台风网官方历史台风数据自动生成，未经人工修改；校验结果见导入脚本 QA 输出。",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.2,
+          12.2
+        ]
+      },
+      "properties": {
+        "id": "202409010000",
+        "timestamp": "2024-09-01T00:00:00Z",
+        "longitude": 126.2,
+        "latitude": 12.2,
+        "centralPressure": 1004,
+        "maxWindSpeed": 13,
+        "intensity": "热带低压",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "TD",
+        "nmcPointId": 3275488,
+        "nmcTimeRaw": "202409010000",
+        "nmcEpochMs": 1725148800000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          125.3,
+          13
+        ]
+      },
+      "properties": {
+        "id": "202409010600",
+        "timestamp": "2024-09-01T06:00:00Z",
+        "longitude": 125.3,
+        "latitude": 13,
+        "centralPressure": 1002,
+        "maxWindSpeed": 15,
+        "intensity": "热带低压",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "TD",
+        "nmcPointId": 3275489,
+        "nmcTimeRaw": "202409010600",
+        "nmcEpochMs": 1725170400000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          124.5,
+          13.9
+        ]
+      },
+      "properties": {
+        "id": "202409011200",
+        "timestamp": "2024-09-01T12:00:00Z",
+        "longitude": 124.5,
+        "latitude": 13.9,
+        "centralPressure": 1002,
+        "maxWindSpeed": 15,
+        "intensity": "热带低压",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "TD",
+        "nmcPointId": 3275490,
+        "nmcTimeRaw": "202409011200",
+        "nmcEpochMs": 1725192000000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          123.3,
+          14.5
+        ]
+      },
+      "properties": {
+        "id": "202409011800",
+        "timestamp": "2024-09-01T18:00:00Z",
+        "longitude": 123.3,
+        "latitude": 14.5,
+        "centralPressure": 998,
+        "maxWindSpeed": 18,
+        "intensity": "热带风暴",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "TS",
+        "nmcPointId": 3275491,
+        "nmcTimeRaw": "202409011800",
+        "nmcEpochMs": 1725213600000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          122.8,
+          15.2
+        ]
+      },
+      "properties": {
+        "id": "202409020000",
+        "timestamp": "2024-09-02T00:00:00Z",
+        "longitude": 122.8,
+        "latitude": 15.2,
+        "centralPressure": 995,
+        "maxWindSpeed": 20,
+        "intensity": "热带风暴",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "TS",
+        "nmcPointId": 3275492,
+        "nmcTimeRaw": "202409020000",
+        "nmcEpochMs": 1725235200000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          122.3,
+          16.3
+        ]
+      },
+      "properties": {
+        "id": "202409020600",
+        "timestamp": "2024-09-02T06:00:00Z",
+        "longitude": 122.3,
+        "latitude": 16.3,
+        "centralPressure": 995,
+        "maxWindSpeed": 20,
+        "intensity": "热带风暴",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "TS",
+        "nmcPointId": 3275493,
+        "nmcTimeRaw": "202409020600",
+        "nmcEpochMs": 1725256800000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.7,
+          17.3
+        ]
+      },
+      "properties": {
+        "id": "202409021200",
+        "timestamp": "2024-09-02T12:00:00Z",
+        "longitude": 121.7,
+        "latitude": 17.3,
+        "centralPressure": 995,
+        "maxWindSpeed": 20,
+        "intensity": "热带风暴",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "TS",
+        "nmcPointId": 3275494,
+        "nmcTimeRaw": "202409021200",
+        "nmcEpochMs": 1725278400000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.8,
+          18.1
+        ]
+      },
+      "properties": {
+        "id": "202409021800",
+        "timestamp": "2024-09-02T18:00:00Z",
+        "longitude": 120.8,
+        "latitude": 18.1,
+        "centralPressure": 995,
+        "maxWindSpeed": 20,
+        "intensity": "热带风暴",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "TS",
+        "nmcPointId": 3275495,
+        "nmcTimeRaw": "202409021800",
+        "nmcEpochMs": 1725300000000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.7,
+          18.2
+        ]
+      },
+      "properties": {
+        "id": "202409030000",
+        "timestamp": "2024-09-03T00:00:00Z",
+        "longitude": 119.7,
+        "latitude": 18.2,
+        "centralPressure": 990,
+        "maxWindSpeed": 23,
+        "intensity": "热带风暴",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "TS",
+        "nmcPointId": 3275496,
+        "nmcTimeRaw": "202409030000",
+        "nmcEpochMs": 1725321600000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.1,
+          18.5
+        ]
+      },
+      "properties": {
+        "id": "202409030600",
+        "timestamp": "2024-09-03T06:00:00Z",
+        "longitude": 119.1,
+        "latitude": 18.5,
+        "centralPressure": 990,
+        "maxWindSpeed": 23,
+        "intensity": "热带风暴",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "TS",
+        "nmcPointId": 3275497,
+        "nmcTimeRaw": "202409030600",
+        "nmcEpochMs": 1725343200000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.6,
+          18.7
+        ]
+      },
+      "properties": {
+        "id": "202409031200",
+        "timestamp": "2024-09-03T12:00:00Z",
+        "longitude": 118.6,
+        "latitude": 18.7,
+        "centralPressure": 985,
+        "maxWindSpeed": 25,
+        "intensity": "强热带风暴",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "STS",
+        "nmcPointId": 3275498,
+        "nmcTimeRaw": "202409031200",
+        "nmcEpochMs": 1725364800000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.2,
+          18.9
+        ]
+      },
+      "properties": {
+        "id": "202409031800",
+        "timestamp": "2024-09-03T18:00:00Z",
+        "longitude": 118.2,
+        "latitude": 18.9,
+        "centralPressure": 980,
+        "maxWindSpeed": 30,
+        "intensity": "强热带风暴",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "STS",
+        "nmcPointId": 3275499,
+        "nmcTimeRaw": "202409031800",
+        "nmcEpochMs": 1725386400000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.7,
+          19
+        ]
+      },
+      "properties": {
+        "id": "202409040000",
+        "timestamp": "2024-09-04T00:00:00Z",
+        "longitude": 117.7,
+        "latitude": 19,
+        "centralPressure": 965,
+        "maxWindSpeed": 38,
+        "intensity": "台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "TY",
+        "nmcPointId": 3275500,
+        "nmcTimeRaw": "202409040000",
+        "nmcEpochMs": 1725408000000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.4,
+          19.1
+        ]
+      },
+      "properties": {
+        "id": "202409040600",
+        "timestamp": "2024-09-04T06:00:00Z",
+        "longitude": 117.4,
+        "latitude": 19.1,
+        "centralPressure": 950,
+        "maxWindSpeed": 45,
+        "intensity": "强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "STY",
+        "nmcPointId": 3275501,
+        "nmcTimeRaw": "202409040600",
+        "nmcEpochMs": 1725429600000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.9,
+          19.2
+        ]
+      },
+      "properties": {
+        "id": "202409041200",
+        "timestamp": "2024-09-04T12:00:00Z",
+        "longitude": 116.9,
+        "latitude": 19.2,
+        "centralPressure": 935,
+        "maxWindSpeed": 52,
+        "intensity": "超强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "SuperTY",
+        "nmcPointId": 3275502,
+        "nmcTimeRaw": "202409041200",
+        "nmcEpochMs": 1725451200000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.3,
+          19.1
+        ]
+      },
+      "properties": {
+        "id": "202409041800",
+        "timestamp": "2024-09-04T18:00:00Z",
+        "longitude": 116.3,
+        "latitude": 19.1,
+        "centralPressure": 925,
+        "maxWindSpeed": 58,
+        "intensity": "超强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "SuperTY",
+        "nmcPointId": 3275503,
+        "nmcTimeRaw": "202409041800",
+        "nmcEpochMs": 1725472800000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.7,
+          19
+        ]
+      },
+      "properties": {
+        "id": "202409050000",
+        "timestamp": "2024-09-05T00:00:00Z",
+        "longitude": 115.7,
+        "latitude": 19,
+        "centralPressure": 915,
+        "maxWindSpeed": 62,
+        "intensity": "超强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "SuperTY",
+        "nmcPointId": 3275504,
+        "nmcTimeRaw": "202409050000",
+        "nmcEpochMs": 1725494400000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.1,
+          19.3
+        ]
+      },
+      "properties": {
+        "id": "202409050600",
+        "timestamp": "2024-09-05T06:00:00Z",
+        "longitude": 115.1,
+        "latitude": 19.3,
+        "centralPressure": 925,
+        "maxWindSpeed": 58,
+        "intensity": "超强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "SuperTY",
+        "nmcPointId": 3275505,
+        "nmcTimeRaw": "202409050600",
+        "nmcEpochMs": 1725516000000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.7,
+          19.3
+        ]
+      },
+      "properties": {
+        "id": "202409050900",
+        "timestamp": "2024-09-05T09:00:00Z",
+        "longitude": 114.7,
+        "latitude": 19.3,
+        "centralPressure": 925,
+        "maxWindSpeed": 58,
+        "intensity": "超强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "SuperTY",
+        "nmcPointId": 3275506,
+        "nmcTimeRaw": "202409050900",
+        "nmcEpochMs": 1725526800000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.2,
+          19.3
+        ]
+      },
+      "properties": {
+        "id": "202409051200",
+        "timestamp": "2024-09-05T12:00:00Z",
+        "longitude": 114.2,
+        "latitude": 19.3,
+        "centralPressure": 925,
+        "maxWindSpeed": 58,
+        "intensity": "超强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "SuperTY",
+        "nmcPointId": 3275507,
+        "nmcTimeRaw": "202409051200",
+        "nmcEpochMs": 1725537600000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.5,
+          19.3
+        ]
+      },
+      "properties": {
+        "id": "202409051500",
+        "timestamp": "2024-09-05T15:00:00Z",
+        "longitude": 113.5,
+        "latitude": 19.3,
+        "centralPressure": 915,
+        "maxWindSpeed": 62,
+        "intensity": "超强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "SuperTY",
+        "nmcPointId": 3275508,
+        "nmcTimeRaw": "202409051500",
+        "nmcEpochMs": 1725548400000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113,
+          19.2
+        ]
+      },
+      "properties": {
+        "id": "202409051800",
+        "timestamp": "2024-09-05T18:00:00Z",
+        "longitude": 113,
+        "latitude": 19.2,
+        "centralPressure": 915,
+        "maxWindSpeed": 62,
+        "intensity": "超强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "SuperTY",
+        "nmcPointId": 3275509,
+        "nmcTimeRaw": "202409051800",
+        "nmcEpochMs": 1725559200000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.6,
+          19.2
+        ]
+      },
+      "properties": {
+        "id": "202409052100",
+        "timestamp": "2024-09-05T21:00:00Z",
+        "longitude": 112.6,
+        "latitude": 19.2,
+        "centralPressure": 915,
+        "maxWindSpeed": 62,
+        "intensity": "超强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "SuperTY",
+        "nmcPointId": 3275510,
+        "nmcTimeRaw": "202409052100",
+        "nmcEpochMs": 1725570000000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.3,
+          19.2
+        ]
+      },
+      "properties": {
+        "id": "202409060000",
+        "timestamp": "2024-09-06T00:00:00Z",
+        "longitude": 112.3,
+        "latitude": 19.2,
+        "centralPressure": 915,
+        "maxWindSpeed": 62,
+        "intensity": "超强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "SuperTY",
+        "nmcPointId": 3275511,
+        "nmcTimeRaw": "202409060000",
+        "nmcEpochMs": 1725580800000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.8,
+          19.5
+        ]
+      },
+      "properties": {
+        "id": "202409060300",
+        "timestamp": "2024-09-06T03:00:00Z",
+        "longitude": 111.8,
+        "latitude": 19.5,
+        "centralPressure": 915,
+        "maxWindSpeed": 62,
+        "intensity": "超强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "SuperTY",
+        "nmcPointId": 3275512,
+        "nmcTimeRaw": "202409060300",
+        "nmcEpochMs": 1725591600000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.3,
+          19.7
+        ]
+      },
+      "properties": {
+        "id": "202409060600",
+        "timestamp": "2024-09-06T06:00:00Z",
+        "longitude": 111.3,
+        "latitude": 19.7,
+        "centralPressure": 915,
+        "maxWindSpeed": 62,
+        "intensity": "超强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "SuperTY",
+        "nmcPointId": 3275513,
+        "nmcTimeRaw": "202409060600",
+        "nmcEpochMs": 1725602400000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.8,
+          19.8
+        ]
+      },
+      "properties": {
+        "id": "202409060900",
+        "timestamp": "2024-09-06T09:00:00Z",
+        "longitude": 110.8,
+        "latitude": 19.8,
+        "centralPressure": 920,
+        "maxWindSpeed": 60,
+        "intensity": "超强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "SuperTY",
+        "nmcPointId": 3275514,
+        "nmcTimeRaw": "202409060900",
+        "nmcEpochMs": 1725613200000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3,
+          20
+        ]
+      },
+      "properties": {
+        "id": "202409061200",
+        "timestamp": "2024-09-06T12:00:00Z",
+        "longitude": 110.3,
+        "latitude": 20,
+        "centralPressure": 925,
+        "maxWindSpeed": 58,
+        "intensity": "超强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "SuperTY",
+        "nmcPointId": 3275515,
+        "nmcTimeRaw": "202409061200",
+        "nmcEpochMs": 1725624000000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109,
+          20.3
+        ]
+      },
+      "properties": {
+        "id": "202409061800",
+        "timestamp": "2024-09-06T18:00:00Z",
+        "longitude": 109,
+        "latitude": 20.3,
+        "centralPressure": 935,
+        "maxWindSpeed": 52,
+        "intensity": "超强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "SuperTY",
+        "nmcPointId": 3275516,
+        "nmcTimeRaw": "202409061800",
+        "nmcEpochMs": 1725645600000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          108.1,
+          20.5
+        ]
+      },
+      "properties": {
+        "id": "202409070000",
+        "timestamp": "2024-09-07T00:00:00Z",
+        "longitude": 108.1,
+        "latitude": 20.5,
+        "centralPressure": 930,
+        "maxWindSpeed": 55,
+        "intensity": "超强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "SuperTY",
+        "nmcPointId": 3275517,
+        "nmcTimeRaw": "202409070000",
+        "nmcEpochMs": 1725667200000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107,
+          20.9
+        ]
+      },
+      "properties": {
+        "id": "202409070600",
+        "timestamp": "2024-09-07T06:00:00Z",
+        "longitude": 107,
+        "latitude": 20.9,
+        "centralPressure": 925,
+        "maxWindSpeed": 58,
+        "intensity": "超强台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "SuperTY",
+        "nmcPointId": 3275518,
+        "nmcTimeRaw": "202409070600",
+        "nmcEpochMs": 1725688800000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106,
+          21
+        ]
+      },
+      "properties": {
+        "id": "202409071200",
+        "timestamp": "2024-09-07T12:00:00Z",
+        "longitude": 106,
+        "latitude": 21,
+        "centralPressure": 960,
+        "maxWindSpeed": 40,
+        "intensity": "台风",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "TY",
+        "nmcPointId": 3275519,
+        "nmcTimeRaw": "202409071200",
+        "nmcEpochMs": 1725710400000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.4,
+          21
+        ]
+      },
+      "properties": {
+        "id": "202409071800",
+        "timestamp": "2024-09-07T18:00:00Z",
+        "longitude": 105.4,
+        "latitude": 21,
+        "centralPressure": 980,
+        "maxWindSpeed": 30,
+        "intensity": "强热带风暴",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "STS",
+        "nmcPointId": 3275520,
+        "nmcTimeRaw": "202409071800",
+        "nmcEpochMs": 1725732000000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.8,
+          21.1
+        ]
+      },
+      "properties": {
+        "id": "202409080000",
+        "timestamp": "2024-09-08T00:00:00Z",
+        "longitude": 104.8,
+        "latitude": 21.1,
+        "centralPressure": 998,
+        "maxWindSpeed": 18,
+        "intensity": "热带风暴",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "TS",
+        "nmcPointId": 3275521,
+        "nmcTimeRaw": "202409080000",
+        "nmcEpochMs": 1725753600000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.2,
+          21.4
+        ]
+      },
+      "properties": {
+        "id": "202409080600",
+        "timestamp": "2024-09-08T06:00:00Z",
+        "longitude": 104.2,
+        "latitude": 21.4,
+        "centralPressure": 1000,
+        "maxWindSpeed": 15,
+        "intensity": "热带低压",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "TD",
+        "nmcPointId": 3275522,
+        "nmcTimeRaw": "202409080600",
+        "nmcEpochMs": 1725775200000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.6,
+          21.9
+        ]
+      },
+      "properties": {
+        "id": "202409081200",
+        "timestamp": "2024-09-08T12:00:00Z",
+        "longitude": 103.6,
+        "latitude": 21.9,
+        "centralPressure": 1002,
+        "maxWindSpeed": 13,
+        "intensity": "热带低压",
+        "source": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+        "grade": "TD",
+        "nmcPointId": 3275523,
+        "nmcTimeRaw": "202409081200",
+        "nmcEpochMs": 1725796800000,
+        "nmcFlagRaw": "no",
+        "nmcWindRadiiRaw": [],
+        "provenance": {
+          "organization": "China Meteorological Administration（中国气象局台风网）",
+          "dataset": "中国气象局台风网（typhoon.nmc.cn）历史台风数据",
+          "rawFile": "yagi-2024-view.json",
+          "url": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+          "note": "tcdata.typhoon.org.cn（CMA-STI 最佳路径文件）受 WAF 保护暂不可程序化下载；本数据为同一机构台风网官方历史分析数据。"
+        }
+      }
+    }
+  ]
+}

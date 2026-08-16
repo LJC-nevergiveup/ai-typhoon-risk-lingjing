@@ -1,0 +1,482 @@
+.panel {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionTitle {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--c-text-faint);
+  margin-bottom: 6px;
+}
+
+.question {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-accent-soft);
+  margin-bottom: 4px;
+}
+
+.chapterTitle {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: var(--c-text-dim);
+  margin-top: 2px;
+}
+
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.point {
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.arrow {
+  color: var(--c-accent);
+  flex: none;
+}
+
+.card {
+  background: var(--c-panel);
+  border: 1px solid var(--c-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.cardTitle {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.chip {
+  flex: none;
+  font-size: 10px;
+  border: 1px solid var(--c-warn);
+  color: var(--c-warn);
+  border-radius: 8px;
+  padding: 1px 6px;
+}
+
+.kindChip {
+  flex: none;
+  font-size: 10px;
+  border-radius: 8px;
+  padding: 1px 6px;
+  border: 1px solid;
+}
+
+.kindDemo {
+  border-color: var(--c-warn);
+  color: var(--c-warn);
+}
+
+.kindReal {
+  border-color: var(--c-green);
+  color: var(--c-green);
+}
+
+.caseName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-accent-soft);
+  margin-bottom: 4px;
+}
+
+.sources {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.source {
+  padding: 6px 0;
+}
+
+.source + .source {
+  border-top: 1px dashed var(--c-border);
+}
+
+.sourceTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sourceRole {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 3px;
+  font-size: 10px;
+}
+
+.rolePrimary {
+  border: 1px solid var(--c-green);
+  color: var(--c-green);
+  border-radius: 8px;
+  padding: 0 6px;
+}
+
+.roleCross {
+  border: 1px solid var(--c-text-faint);
+  color: var(--c-text-faint);
+  border-radius: 8px;
+  padding: 0 6px;
+}
+
+.sourceTypeChip {
+  border: 1px solid var(--c-accent);
+  color: var(--c-accent);
+  border-radius: 8px;
+  padding: 0 6px;
+}
+
+.sourceScope {
+  color: var(--c-text-faint);
+}
+
+/* ---- 登陆过程 ---- */
+
+.landfallList {
+  list-style: none;
+}
+
+.landfallItem {
+  padding: 6px 0;
+}
+
+.landfallGap {
+  font-size: 11px;
+  color: var(--c-text-faint);
+  padding: 4px 0 2px;
+}
+
+.landfallSeq {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--c-accent-soft);
+}
+
+.landfallMeta {
+  font-size: 12px;
+  color: var(--c-text-dim);
+  margin-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.landfallNote {
+  font-size: 11px;
+  color: var(--c-text-faint);
+  line-height: 1.5;
+  margin-top: 4px;
+  border-left: 2px solid var(--c-border);
+  padding-left: 8px;
+}
+
+/* ---- 资料口径说明 ---- */
+
+.disclaimer {
+  font-size: 12px;
+  color: var(--c-text-dim);
+  line-height: 1.6;
+  margin-top: 4px;
+}
+
+/* ---- 点击查询 ---- */
+
+.queryLocation {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-accent-soft);
+  margin-bottom: 4px;
+}
+
+/* ---- 05 章节：工作流 / 应急包 / 故事线 ---- */
+
+.pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+  color: var(--c-text-dim);
+  line-height: 1.5;
+  margin: 6px 0 10px;
+}
+
+.code {
+  background: var(--c-panel-2);
+  border: 1px solid var(--c-border);
+  border-radius: 4px;
+  padding: 0 4px;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 11px;
+  color: var(--c-warn);
+}
+
+.kitGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.kitItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--c-text);
+  background: var(--c-panel-2);
+  border: 1px solid var(--c-border);
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+.kitIcon {
+  font-size: 15px;
+}
+
+.storyText {
+  font-size: 13px;
+  color: var(--c-accent-soft);
+  line-height: 1.6;
+}
+
+.storyBtn {
+  margin-top: 8px;
+  padding: 5px 14px;
+  font-size: 13px;
+  border: 1px solid var(--c-accent);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--c-accent);
+}
+
+.storyBtn:hover {
+  background: var(--c-panel-2);
+  color: var(--c-accent-soft);
+}
+
+.storyEnding {
+  font-size: 12px;
+  color: var(--c-text-dim);
+  line-height: 1.6;
+}
+
+.queryAttention {
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.attHigh {
+  color: var(--c-danger);
+  font-weight: 700;
+}
+
+.attMedium {
+  color: var(--c-warn);
+  font-weight: 700;
+}
+
+.attLow {
+  color: var(--c-yellow);
+  font-weight: 700;
+}
+
+.queryDisclaimer {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--c-border);
+  font-size: 11px;
+  color: var(--c-warn);
+  line-height: 1.5;
+}
+
+/* ---- 章节专题（台风从哪来 三步走） ---- */
+
+.step {
+  padding: 8px 0;
+}
+
+.step + .step {
+  border-top: 1px dashed var(--c-border);
+}
+
+.stepTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--c-accent-soft);
+}
+
+.stepText {
+  font-size: 12px;
+  color: var(--c-text-dim);
+  line-height: 1.6;
+  margin-top: 3px;
+}
+
+.stepMeta {
+  font-size: 11px;
+  color: var(--c-text-faint);
+  margin-top: 3px;
+}
+
+.stepBtn {
+  margin-top: 6px;
+  padding: 3px 10px;
+  font-size: 12px;
+  border: 1px solid var(--c-accent);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--c-accent);
+}
+
+.stepBtn:hover {
+  background: var(--c-panel-2);
+}
+
+.pendingChip {
+  flex: none;
+  font-size: 10px;
+  border: 1px solid var(--c-warn);
+  color: var(--c-warn);
+  border-radius: 8px;
+  padding: 1px 6px;
+}
+
+/* ---- 环境观测资料 ---- */
+
+.frameGroupTitle {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--c-text-faint);
+  margin: 6px 0 2px;
+}
+
+.frameList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.frameItem {
+  font-size: 12px;
+  color: var(--c-text);
+  line-height: 1.5;
+}
+
+.frameMeta {
+  display: block;
+  font-size: 10px;
+  color: var(--c-text-faint);
+  line-height: 1.4;
+}
+
+.frameMeta a {
+  color: var(--c-accent);
+  text-decoration: none;
+}
+
+.frameMeta a:hover {
+  text-decoration: underline;
+}
+
+.sourceTitle a {
+  color: var(--c-accent);
+  text-decoration: none;
+  flex: none;
+}
+
+.sourceTitle a:hover {
+  text-decoration: underline;
+}
+
+.sourceDesc {
+  font-size: 11px;
+  color: var(--c-text-dim);
+  line-height: 1.5;
+  margin-top: 2px;
+}
+
+.sourceMeta {
+  font-size: 10px;
+  color: var(--c-text-faint);
+  margin-top: 2px;
+}
+
+.kv {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--c-text-dim);
+  padding: 2px 0;
+}
+
+.kv span:last-child {
+  color: var(--c-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.note {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--c-border);
+  font-size: 11px;
+  color: var(--c-text-faint);
+  line-height: 1.5;
+}
+
+.dim {
+  font-size: 12px;
+  color: var(--c-text-faint);
+  padding: 6px 0;
+}
+
+.error {
+  font-size: 12px;
+  color: var(--c-danger);
+  padding: 6px 0;
+  line-height: 1.5;
+}
+
+.warn {
+  font-size: 12px;
+  color: var(--c-warn);
+  padding: 6px 0;
+  line-height: 1.5;
+}
+
+.warnList {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px dashed var(--c-border);
+}
+
+.foot {
+  font-size: 11px;
+  color: var(--c-text-faint);
+  line-height: 1.6;
+}

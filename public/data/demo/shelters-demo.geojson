@@ -1,0 +1,15 @@
+{
+  "type": "FeatureCollection",
+  "demo": true,
+  "description": "避险点演示数据：名称与容量为示意值，仅用于界面验证。",
+  "features": [
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [120.68, 27.99] }, "properties": { "id": "s1", "name": "温州市体育中心", "kind": "体育中心", "capacity": 3000 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [121.43, 28.66] }, "properties": { "id": "s2", "name": "台州椒江第一中学", "kind": "学校", "capacity": 2500 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [121.52, 29.88] }, "properties": { "id": "s3", "name": "宁波雅戈尔体育馆", "kind": "体育馆", "capacity": 4000 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [119.27, 26.02] }, "properties": { "id": "s4", "name": "福州海峡奥体中心", "kind": "体育中心", "capacity": 5000 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [118.58, 24.81] }, "properties": { "id": "s5", "name": "泉州晋江体育中心", "kind": "体育中心", "capacity": 2000 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [118.09, 24.48] }, "properties": { "id": "s6", "name": "厦门市工人体育馆", "kind": "体育馆", "capacity": 3000 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [116.7, 23.37] }, "properties": { "id": "s7", "name": "汕头林百欣会展中心", "kind": "会展中心", "capacity": 2600 } },
+    { "type": "Feature", "geometry": { "type": "Point", "coordinates": [113.32, 23.13] }, "properties": { "id": "s8", "name": "广州天河体育中心", "kind": "体育中心", "capacity": 6000 } }
+  ]
+}

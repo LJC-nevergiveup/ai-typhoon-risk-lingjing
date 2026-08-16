@@ -1,0 +1,86 @@
+{
+  "type": "FeatureCollection",
+  "schematic": true,
+  "note": "预测不确定性示意，非真实集合预报，不构成任何预报结论。",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            118.6,
+            18.7
+          ],
+          [
+            114,
+            19.8
+          ],
+          [
+            110,
+            20.8
+          ]
+        ]
+      },
+      "properties": {
+        "id": "cone-a",
+        "label": "可能路径 A（示意）",
+        "note": "沿引导气流继续西行"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            118.6,
+            18.7
+          ],
+          [
+            115.5,
+            20.6
+          ],
+          [
+            112.5,
+            22
+          ]
+        ]
+      },
+      "properties": {
+        "id": "cone-b",
+        "label": "可能路径 B（示意）",
+        "note": "偏西北行，更早逼近陆地"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            118.6,
+            18.7
+          ],
+          [
+            121,
+            21.5
+          ],
+          [
+            124.5,
+            26
+          ],
+          [
+            128,
+            31
+          ]
+        ]
+      },
+      "properties": {
+        "id": "cone-c",
+        "label": "可能路径 C（示意）",
+        "note": "提前转向北上"
+      }
+    }
+  ]
+}

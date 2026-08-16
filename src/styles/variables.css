@@ -1,0 +1,25 @@
+:root {
+  /* 深蓝 / 海洋蓝 / 白 主题色板 */
+  --c-bg: #081426;          /* 页面底色 */
+  --c-bg-soft: #0d1f36;     /* 侧栏底色 */
+  --c-panel: #10263f;       /* 面板 */
+  --c-panel-2: #152e4a;     /* 面板高亮 */
+  --c-border: #1f3b57;
+  --c-border-strong: #2c5377;
+
+  --c-text: #e8f1f8;
+  --c-text-dim: #9db8cc;
+  --c-text-faint: #5f7f97;
+
+  --c-accent: #35c8ff;      /* 主强调（路径蓝） */
+  --c-accent-soft: #7dd8ff;
+  --c-green: #2ee6a8;       /* 避险点 */
+  --c-warn: #f2a33c;        /* 警告/中风险 */
+  --c-danger: #e64545;      /* 高风险 */
+  --c-yellow: #f7d154;      /* 低风险 */
+
+  /* 布局尺寸 */
+  --header-h: 60px;
+  --chapter-w: 224px;
+  --info-w: 332px;
+}

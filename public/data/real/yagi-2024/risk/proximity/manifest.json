@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "status": "available",
+  "id": "proximity",
+  "label": "台风路径邻近度",
+  "imagePath": "real/yagi-2024/risk/proximity/proximity.png",
+  "bbox": [
+    108.2,
+    18.9,
+    111.6,
+    21.2
+  ],
+  "legend": "红=距路径 ≤50 km｜橙=50–100 km｜黄=100–150 km｜浅绿=>150 km",
+  "source": "derived from NMC 台风网历史轨迹（track.geojson）",
+  "sourceUrl": "http://typhoon.nmc.cn/weatherservice/typhoon/jsons/view_3275487",
+  "sourceType": "derived-analysis",
+  "purpose": "science-communication-only",
+  "processing": [
+    "input = NMC historical track (36 points, unmodified)",
+    "method = minimum cross-track distance on WGS84 sphere (R=6371.0088 km), per-segment with endpoint clamping",
+    "grid = 0.01-degree AOI cells",
+    "distance values not manually modified"
+  ],
+  "disclaimer": "路径邻近度仅表示与历史轨迹的几何距离，不代表风速、风圈或破坏范围。"
+}

@@ -1,0 +1,39 @@
+.bar {
+  position: absolute;
+  top: 116px;
+  left: 12px;
+  z-index: 10;
+  max-width: min(430px, 62%);
+  background: var(--c-panel);
+  border: 1px solid var(--c-border-strong);
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--c-text);
+  line-height: 1.6;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.diff {
+  color: var(--c-warn);
+}
+
+.source {
+  margin-top: 2px;
+  font-size: 10px;
+  color: var(--c-text-faint);
+}

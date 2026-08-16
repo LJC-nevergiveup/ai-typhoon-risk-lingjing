@@ -1,0 +1,29 @@
+# 依赖
+node_modules
+
+# 构建产物
+dist
+
+# npm 本地缓存（已重定向到项目内）
+.npm-cache
+
+# 日志与临时文件
+*.log
+*.local
+.DS_Store
+
+# 编辑器
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# 大体积原始数据二进制（不提交，磁盘保留；清单见 public/data/raw/*/README.md 与 PROJECT_HANDOFF.md）
+public/data/raw/**/*.tif
+public/data/raw/**/*.NC
+public/data/raw/**/*.JPG
+public/data/raw/**/*.gpkg.gz
+public/data/raw/**/*.zip
+
+# 用户下载的原始压缩包与解压目录（项目根目录，仅作备份，不入库）
+卫星云图.zip
+卫星云图/

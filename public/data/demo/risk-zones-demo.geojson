@@ -1,0 +1,52 @@
+{
+  "type": "FeatureCollection",
+  "demo": true,
+  "description": "风险分区演示数据：边界为示意多边形，不代表真实评估结果。",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Polygon", "coordinates": [[[121.35, 29.95], [121.75, 29.92], [121.78, 29.62], [121.38, 29.58], [121.35, 29.95]]] },
+      "properties": { "id": "z-ningbo-lowland", "name": "宁波沿海低洼城区", "riskType": "lowland", "riskLevel": "high", "note": "强降水叠加风暴潮易引发内涝，地下空间风险高" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Polygon", "coordinates": [[[120.95, 28.42], [121.85, 28.65], [121.75, 27.95], [120.85, 27.85], [120.95, 28.42]]] },
+      "properties": { "id": "z-wenzhou-coast", "name": "温州—台州沿海岸段", "riskType": "coast", "riskLevel": "high", "note": "直面登陆风浪与风暴增水" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Polygon", "coordinates": [[[119.45, 26.05], [119.92, 26.12], [119.85, 25.62], [119.38, 25.58], [119.45, 26.05]]] },
+      "properties": { "id": "z-fuzhou-coast", "name": "福州沿海岸段", "riskType": "coast", "riskLevel": "high", "note": "闽江口风暴潮增水风险" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Polygon", "coordinates": [[[118.35, 24.95], [118.95, 24.98], [118.88, 24.42], [118.28, 24.38], [118.35, 24.95]]] },
+      "properties": { "id": "z-quanzhou-urban", "name": "泉州—厦门人口密集城区", "riskType": "urban", "riskLevel": "medium", "note": "人口与经济密度高，灾害放大效应明显" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Polygon", "coordinates": [[[118.15, 27.25], [118.95, 27.32], [118.75, 26.62], [117.95, 26.58], [118.15, 27.25]]] },
+      "properties": { "id": "z-minbei-torrent", "name": "闽北山洪沟谷", "riskType": "torrent", "riskLevel": "medium", "note": "短时强降雨易引发山洪与地质灾害" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Polygon", "coordinates": [[[119.65, 28.45], [120.45, 28.52], [120.25, 27.95], [119.45, 27.9], [119.65, 28.45]]] },
+      "properties": { "id": "z-zhenan-torrent", "name": "浙南山洪沟谷", "riskType": "torrent", "riskLevel": "medium", "note": "河谷地带山洪与泥石流风险" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Polygon", "coordinates": [[[113.15, 23.05], [113.85, 23.12], [113.75, 22.55], [113.05, 22.5], [113.15, 23.05]]] },
+      "properties": { "id": "z-prd-lowland", "name": "珠江口低洼城区", "riskType": "lowland", "riskLevel": "high", "note": "珠三角低洼城区内涝风险突出" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Polygon", "coordinates": [[[116.35, 23.35], [117.05, 23.42], [116.95, 23.02], [116.25, 22.98], [116.35, 23.35]]] },
+      "properties": { "id": "z-shantou-coast", "name": "汕头沿海岸段", "riskType": "coast", "riskLevel": "medium", "note": "台风登陆叠加天文潮风险" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Polygon", "coordinates": [[[110.05, 21.25], [110.85, 21.32], [110.75, 20.78], [109.95, 20.72], [110.05, 21.25]]] },
+      "properties": { "id": "z-zhanjiang-coast", "name": "湛江沿海岸段", "riskType": "coast", "riskLevel": "low", "note": "沿海岸段基础风险较低" }
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "status": "available",
+  "note": "由 scripts/import_fy4b_env.py 生成：FY-4B AGRI 真彩官方产品，经标称网格→EPSG:4326 重投影与区域裁剪（见各帧 processing），气象数值未修改。",
+  "frames": [
+    {
+      "id": "fy4b-agri-gclr-202409010000",
+      "timestamp": "2024-09-01T00:00:00Z",
+      "satellite": "FY-4B",
+      "instrument": "AGRI",
+      "product": "AGRI 真彩图像（GCLR）L2 · 全圆盘 1000M",
+      "imagePath": "real/yagi-2024/environment/satellite/imagery/fy4b-agri-gclr-202409010000.png",
+      "bbox": [
+        105.0,
+        5.0,
+        140.0,
+        30.0
+      ],
+      "source": "国家卫星气象中心（NSMC/CMA）风云卫星遥感数据服务网",
+      "sourceUrl": "https://satellite.nsmc.org.cn/",
+      "sourceType": "satellite",
+      "processing": [
+        "downloaded official image product (NSMC DataPortal, JPG)",
+        "reprojected from FY-4B fixed grid (nominal subpoint 105E) to EPSG:4326 equirectangular, bilinear resampling",
+        "cropped to 105-140E, 5-30N for web visualization",
+        "saved as PNG (web format)",
+        "no meteorological values modified"
+      ],
+      "caption": "生成阶段：初始热带扰动云系（轨迹等级：热带低压）"
+    },
+    {
+      "id": "fy4b-agri-gclr-202409020000",
+      "timestamp": "2024-09-02T00:00:00Z",
+      "satellite": "FY-4B",
+      "instrument": "AGRI",
+      "product": "AGRI 真彩图像（GCLR）L2 · 全圆盘 1000M",
+      "imagePath": "real/yagi-2024/environment/satellite/imagery/fy4b-agri-gclr-202409020000.png",
+      "bbox": [
+        105.0,
+        5.0,
+        140.0,
+        30.0
+      ],
+      "source": "国家卫星气象中心（NSMC/CMA）风云卫星遥感数据服务网",
+      "sourceUrl": "https://satellite.nsmc.org.cn/",
+      "sourceType": "satellite",
+      "processing": [
+        "downloaded official image product (NSMC DataPortal, JPG)",
+        "reprojected from FY-4B fixed grid (nominal subpoint 105E) to EPSG:4326 equirectangular, bilinear resampling",
+        "cropped to 105-140E, 5-30N for web visualization",
+        "saved as PNG (web format)",
+        "no meteorological values modified"
+      ],
+      "caption": "发展：云系组织加强（轨迹等级：热带风暴）"
+    },
+    {
+      "id": "fy4b-agri-gclr-202409030000",
+      "timestamp": "2024-09-03T00:00:00Z",
+      "satellite": "FY-4B",
+      "instrument": "AGRI",
+      "product": "AGRI 真彩图像（GCLR）L2 · 全圆盘 1000M",
+      "imagePath": "real/yagi-2024/environment/satellite/imagery/fy4b-agri-gclr-202409030000.png",
+      "bbox": [
+        105.0,
+        5.0,
+        140.0,
+        30.0
+      ],
+      "source": "国家卫星气象中心（NSMC/CMA）风云卫星遥感数据服务网",
+      "sourceUrl": "https://satellite.nsmc.org.cn/",
+      "sourceType": "satellite",
+      "processing": [
+        "downloaded official image product (NSMC DataPortal, JPG)",
+        "reprojected from FY-4B fixed grid (nominal subpoint 105E) to EPSG:4326 equirectangular, bilinear resampling",
+        "cropped to 105-140E, 5-30N for web visualization",
+        "saved as PNG (web format)",
+        "no meteorological values modified"
+      ],
+      "caption": "发展：继续向西北方向移动（轨迹等级：热带风暴）"
+    },
+    {
+      "id": "fy4b-agri-gclr-202409040000",
+      "timestamp": "2024-09-04T00:00:00Z",
+      "satellite": "FY-4B",
+      "instrument": "AGRI",
+      "product": "AGRI 真彩图像（GCLR）L2 · 全圆盘 1000M",
+      "imagePath": "real/yagi-2024/environment/satellite/imagery/fy4b-agri-gclr-202409040000.png",
+      "bbox": [
+        105.0,
+        5.0,
+        140.0,
+        30.0
+      ],
+      "source": "国家卫星气象中心（NSMC/CMA）风云卫星遥感数据服务网",
+      "sourceUrl": "https://satellite.nsmc.org.cn/",
+      "sourceType": "satellite",
+      "processing": [
+        "downloaded official image product (NSMC DataPortal, JPG)",
+        "reprojected from FY-4B fixed grid (nominal subpoint 105E) to EPSG:4326 equirectangular, bilinear resampling",
+        "cropped to 105-140E, 5-30N for web visualization",
+        "saved as PNG (web format)",
+        "no meteorological values modified"
+      ],
+      "caption": "进入南海东北部并快速增强（轨迹等级：台风）"
+    },
+    {
+      "id": "fy4b-agri-gclr-202409050600",
+      "timestamp": "2024-09-05T06:00:00Z",
+      "satellite": "FY-4B",
+      "instrument": "AGRI",
+      "product": "AGRI 真彩图像（GCLR）L2 · 全圆盘 1000M",
+      "imagePath": "real/yagi-2024/environment/satellite/imagery/fy4b-agri-gclr-202409050600.png",
+      "bbox": [
+        105.0,
+        5.0,
+        140.0,
+        30.0
+      ],
+      "source": "国家卫星气象中心（NSMC/CMA）风云卫星遥感数据服务网",
+      "sourceUrl": "https://satellite.nsmc.org.cn/",
+      "sourceType": "satellite",
+      "processing": [
+        "downloaded official image product (NSMC DataPortal, JPG)",
+        "reprojected from FY-4B fixed grid (nominal subpoint 105E) to EPSG:4326 equirectangular, bilinear resampling",
+        "cropped to 105-140E, 5-30N for web visualization",
+        "saved as PNG (web format)",
+        "no meteorological values modified"
+      ],
+      "caption": "快速增强至超强台风（轨迹峰值附近）"
+    },
+    {
+      "id": "fy4b-agri-gclr-202409060600",
+      "timestamp": "2024-09-06T06:00:00Z",
+      "satellite": "FY-4B",
+      "instrument": "AGRI",
+      "product": "AGRI 真彩图像（GCLR）L2 · 全圆盘 1000M",
+      "imagePath": "real/yagi-2024/environment/satellite/imagery/fy4b-agri-gclr-202409060600.png",
+      "bbox": [
+        105.0,
+        5.0,
+        140.0,
+        30.0
+      ],
+      "source": "国家卫星气象中心（NSMC/CMA）风云卫星遥感数据服务网",
+      "sourceUrl": "https://satellite.nsmc.org.cn/",
+      "sourceType": "satellite",
+      "processing": [
+        "downloaded official image product (NSMC DataPortal, JPG)",
+        "reprojected from FY-4B fixed grid (nominal subpoint 105E) to EPSG:4326 equirectangular, bilinear resampling",
+        "cropped to 105-140E, 5-30N for web visualization",
+        "saved as PNG (web format)",
+        "no meteorological values modified"
+      ],
+      "caption": "登陆前：云系逼近海南岛（轨迹等级：超强台风）"
+    }
+  ]
+}

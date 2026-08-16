@@ -1,0 +1,73 @@
+{
+  "type": "FeatureCollection",
+  "status": "available",
+  "schemaVersion": 1,
+  "note": "登陆事件数据来自中央气象台业务通报（operational-bulletin），与历史轨迹（historical-track）严格区分。登陆坐标按通报地点名称地理编码（geocoded-location），仅用于地图可视化，不是官方登陆点坐标。所有数值字段均有官方原文出处（见各要素 notes / sourceUrl）。",
+  "schema": {
+    "geometry": "Point",
+    "properties": {
+      "id": "string · 登陆事件标识",
+      "sequence": "number · 登陆次序（1 为首次）",
+      "timestamp": "string · ISO 8601 UTC",
+      "longitude": "number · 十进制度（°E）",
+      "latitude": "number · 十进制度（°N）",
+      "locationName": "string · 通报中的登陆地点",
+      "province": "string",
+      "cityOrCounty": "string",
+      "intensity": "string · 登陆时强度等级",
+      "maxWindSpeed": "number|null · 登陆时最大风速（m/s），无权威数值时 null",
+      "centralPressure": "number|null · 登陆时中心气压（hPa），无权威数值时 null",
+      "source": "string · 来源描述",
+      "sourceType": "string · operational-bulletin",
+      "sourceUrl": "string · 来源链接",
+      "coordinateType": "string · authoritative | geocoded-location | approximate-for-visualization",
+      "notes": "string · 数据口径与出处说明"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [110.87503, 19.93271] },
+      "properties": {
+        "id": "yagi-2024-landfall-01",
+        "sequence": 1,
+        "timestamp": "2024-09-06T08:20:00Z",
+        "longitude": 110.87503,
+        "latitude": 19.93271,
+        "locationName": "海南省文昌市翁田镇沿海",
+        "province": "海南省",
+        "cityOrCounty": "文昌市",
+        "intensity": "超强台风级（17级以上）",
+        "maxWindSpeed": 62,
+        "centralPressure": 915,
+        "source": "中央气象台台风快讯（海南省政府网/央广网海南频道转载）",
+        "sourceType": "operational-bulletin",
+        "sourceUrl": "https://www.hainan.gov.cn/hainan/5309/202409/503cf0153a6045d483cf1fd93f3c61b5.shtml",
+        "coordinateType": "geocoded-location",
+        "notes": "登陆时间 16:20 北京时间（08:20 UTC）、超强台风级，引自官方业务通报原文：“登陆时其中心附近最大风力17级以上（62米/秒），中心最低气压915hPa”（央广网海南频道：https://www.cnr.cn/hn/jrhn/20240906/t20240906_526891112.shtml）。坐标按通报地点名称“翁田镇”地理编码（维基百科行政区划坐标 19.93271°N, 110.87503°E），仅用于地图可视化，非官方登陆点坐标。"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [109.95327, 20.26284] },
+      "properties": {
+        "id": "yagi-2024-landfall-02",
+        "sequence": 2,
+        "timestamp": "2024-09-06T14:20:00Z",
+        "longitude": 109.95327,
+        "latitude": 20.26284,
+        "locationName": "广东省湛江市徐闻县角尾乡沿海",
+        "province": "广东省",
+        "cityOrCounty": "湛江市徐闻县",
+        "intensity": "超强台风级（17级）",
+        "maxWindSpeed": 58,
+        "centralPressure": 925,
+        "source": "中央气象台台风快讯（中国天气网/央广网广东省气象台转载）",
+        "sourceType": "operational-bulletin",
+        "sourceUrl": "https://qq.weather.com.cn/news/2024/09/3872661.shtml",
+        "coordinateType": "geocoded-location",
+        "notes": "登陆时间 22:20 北京时间（14:20 UTC）、超强台风级，引自官方业务通报原文：“登陆时中心附近最大风力17级（58米/秒），中心最低气压925百帕”（央广网转载央视新闻客户端/广东省气象台消息：http://news.cnr.cn/rebang/20240906/t20240906_526891685.shtml；海南省气象局官网页面标题同证：http://hi.cma.gov.cn/xwzx/gzdt/202409/t20240906_6552658.html）。坐标按通报地点名称“角尾乡”地理编码（维基百科行政区划坐标 20.26284°N, 109.95327°E），仅用于地图可视化，非官方登陆点坐标。"
+      }
+    }
+  ]
+}

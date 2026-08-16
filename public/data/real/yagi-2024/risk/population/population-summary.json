@@ -1,0 +1,36 @@
+{
+  "aoi": [
+    108.2,
+    18.9,
+    111.6,
+    21.2
+  ],
+  "grid": {
+    "cols": 340,
+    "rows": 230,
+    "resolution": 0.01,
+    "crs": "EPSG:4326"
+  },
+  "source": "Kontur Population（China: Population Density for 400m H3 Hexagons, 2023-11-01 发布）via HDX",
+  "sourceNote": "WorldPop 中国 100m 文件约 4.6 GB，下载受限；Kontur 数据基于 GHSL/WorldPop 等开源输入。",
+  "sourceFile": "kontur_population_CN_20231101.gpkg.gz",
+  "year": "2023（发布版；人口基础约 2020）",
+  "resolution": "400m H3 六边形 → 质心归入 0.01° 网格",
+  "unit": "人数/六边形 → 网格求和 → 人/km²",
+  "population": {
+    "totalInAOI": 10527639.0,
+    "maxDensity": 60899.02092103414,
+    "minDensity": 0.8529749179684174
+  },
+  "classThresholds": {
+    "high": 2000.0,
+    "medium": 500.0
+  },
+  "classCounts": {
+    "0": 61049,
+    "1": 13863,
+    "2": 2495,
+    "3": 793
+  },
+  "zeroPopulationCells": 61049
+}
