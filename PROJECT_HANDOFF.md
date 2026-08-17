@@ -251,7 +251,7 @@ REAL 数据包内容与状态（磁盘已核对）：
 - 构建产物存在 chunk>500kB 提示（maplibre 本体约 1MB，可接受）。
 - **P0（人工项）：地图底图合规最终人工检查**（底图已换天地图官方服务；未取得正式证明前不宣称“已通过审核”；
   见 docs/competition/map-compliance-audit.md）；天地图 token、≥2 张真实截图、正式 URL、作者信息待人工补录。
-- 作者/团队名与正式 URL 待人工填写（submission/ 内 TODO_USER_FILL / website-link.txt）。
+- 作者信息已回填（李金澄，中国地震局兰州地震研究所，个人参赛）；正式 URL 待部署后回填（website-link.txt）。
 
 # Pending Tasks
 
