@@ -3,6 +3,21 @@
 本作品为**纯静态站点**，无后端、无数据库。`vite.config.ts` 已设 `base: './'`（相对路径），
 可直接部署到任意静态托管（含子路径）。
 
+## 当前部署状态（2026-08-17）
+
+- **实际部署平台**：未部署（**deployment-ready**，等待作者执行部署）
+- Build Command：`npm run build`（内部含 `tsc --noEmit`）
+- Install Command：`npm ci`
+- Output Directory：`dist`
+- 环境变量：`VITE_TIANDITU_TOKEN`（必需，正式底图显示）
+- Production URL：待部署后回填 `submission/01_作品/website-link.txt`
+- 部署日期：—
+- 待部署版本：本地 commit `90d7629`（master，工作区干净）
+- 重新部署：见下方方案 A / B
+
+> 在真正部署并验证前，本文件**不写 deployed**；部署完成、公网验收通过后，
+> 由作者更新本节的 URL / 日期 / commit 字段。
+
 ## 构建
 
 ```bash
