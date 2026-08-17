@@ -2,7 +2,7 @@
 
 ## 在线访问
 
-- 正式访问 URL 见 `submission/01_作品/website-link.txt`（当前尚未部署，部署后填写）。
+- 在线访问：https://ljc-nevergiveup.github.io/ai-typhoon-risk-lingjing/
 - 本作品为纯静态网页，无需安装、无后端、无账号系统；打开链接即可使用。
 
 ## 推荐环境

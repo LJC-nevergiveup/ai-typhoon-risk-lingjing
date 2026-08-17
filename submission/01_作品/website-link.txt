@@ -1,3 +1,11 @@
-【占位说明】作品正式访问 URL：尚未部署，请勿编造。部署完成后，请将唯一、真实可访问的正式链接填写在下一行（仅一行 URL）：
+作品名称：
+AI 台风风险灵境——和 AI 一起追“风”去
 
-（待填写）
+在线访问地址：
+https://ljc-nevergiveup.github.io/ai-typhoon-risk-lingjing/
+
+推荐浏览器：
+Chrome / Edge 最新版本
+
+推荐：
+PC 端体验（1366×768 或 1920×1080）

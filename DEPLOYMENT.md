@@ -7,11 +7,11 @@
 
 - **正式平台：GitHub Pages**（Vercel 因账号验证暂不可用）
 - 仓库：`https://github.com/LJC-nevergiveup/ai-typhoon-risk-lingjing`（分支 `master`）
-- 预期站点：`https://LJC-nevergiveup.github.io/ai-typhoon-risk-lingjing/`
-- **状态：deployment-ready**（`.github/workflows/deploy.yml` 已创建，等待首次 push + 配置 secret + 启用 Pages）
+- 预期站点：`https://ljc-nevergiveup.github.io/ai-typhoon-risk-lingjing/`
+- **状态：已部署**（正式 URL 已回填 `submission/01_作品/website-link.txt`；部署日期 / production commit 由作者补充）
 - Build Command：`npm run build`（内部含 `tsc --noEmit`）；Install：`npm ci`；Output：`dist`
 - 环境变量：`VITE_TIANDITU_TOKEN`（GitHub Actions 中通过 **secret** 注入）
-- Production URL：待部署后回填 `submission/01_作品/website-link.txt`
+- Production URL：`https://ljc-nevergiveup.github.io/ai-typhoon-risk-lingjing/`
 
 ## 天地图 token
 
@@ -34,7 +34,7 @@
 3. 在仓库 Settings → **Pages** → Build and deployment → Source 选 **GitHub Actions**。
 4. push 到 `master` 或手动触发 Actions（`workflow_dispatch`）→ workflow 自动：
    `npm ci` → `npm run typecheck` → `npm run build`（注入 secret）→ 上传 `dist/` → 部署 Pages。
-5. 部署完成后得到正式 URL：`https://LJC-nevergiveup.github.io/ai-typhoon-risk-lingjing/`。
+5. 部署完成后得到正式 URL：`https://ljc-nevergiveup.github.io/ai-typhoon-risk-lingjing/`。
 6. 按 `submission/01_作品/deployment-checklist.md` 人工验收，并把 URL 回填 `website-link.txt`。
 
 > 说明：工作流文件 `.github/workflows/deploy.yml` 已按 GitHub Pages 官方 Actions
