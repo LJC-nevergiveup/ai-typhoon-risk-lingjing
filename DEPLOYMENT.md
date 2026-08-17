@@ -1,69 +1,57 @@
 # 部署说明（DEPLOYMENT）
 
-本作品为**纯静态站点**，无后端、无数据库。`vite.config.ts` 已设 `base: './'`（相对路径），
-可直接部署到任意静态托管（含子路径）。
+本作品为**纯静态站点**，无后端、无数据库。`vite.config.ts` 已设 `base: './'`（相对路径，
+适配 GitHub Pages 项目页子路径 / Vercel 根路径；无绝对根路径 `/data/...` 引用）。
 
 ## 当前部署状态（2026-08-17）
 
-- **实际部署平台**：未部署（**deployment-ready**，等待作者执行部署）
-- Build Command：`npm run build`（内部含 `tsc --noEmit`）
-- Install Command：`npm ci`
-- Output Directory：`dist`
-- 环境变量：`VITE_TIANDITU_TOKEN`（必需，正式底图显示）
+- **正式平台：GitHub Pages**（Vercel 因账号验证暂不可用）
+- 仓库：`https://github.com/LJC-nevergiveup/ai-typhoon-risk-lingjing`（分支 `master`）
+- 预期站点：`https://LJC-nevergiveup.github.io/ai-typhoon-risk-lingjing/`
+- **状态：deployment-ready**（`.github/workflows/deploy.yml` 已创建，等待首次 push + 配置 secret + 启用 Pages）
+- Build Command：`npm run build`（内部含 `tsc --noEmit`）；Install：`npm ci`；Output：`dist`
+- 环境变量：`VITE_TIANDITU_TOKEN`（GitHub Actions 中通过 **secret** 注入）
 - Production URL：待部署后回填 `submission/01_作品/website-link.txt`
-- 部署日期：—
-- 待部署版本：本地 commit `90d7629`（master，工作区干净）
-- 重新部署：见下方方案 A / B
 
-> 在真正部署并验证前，本文件**不写 deployed**；部署完成、公网验收通过后，
-> 由作者更新本节的 URL / 日期 / commit 字段。
-
-## 构建
-
-```bash
-npm install
-npm run build     # 类型检查 + 构建，产物在 dist/
-```
-
-- 产物目录：`dist/`（约 16.6 MB；`public/data/raw/` 原始大文件已在构建时剔除，不随作品部署）。
-- 本地预览构建产物：`npm run preview`；开发：`npm run dev`（http://localhost:5173）。
-
-## 天地图 token（正式底图必需）
+## 天地图 token
 
 正式底图使用国家地理信息公共服务平台“天地图”（官方服务）：
 
-1. 注册并登录天地图开发者：https://console.tianditu.gov.cn/ （免费）。
-2. 创建“浏览器端”应用，获取密钥（tk）。
-3. 部署时把该密钥配置为环境变量 `VITE_TIANDITU_TOKEN`（示例见 `.env.example`；本地开发可复制 `.env.example` 为 `.env` 填入）。
-4. 未配置 token 时页面自动使用纯色回退底图并提示“正式底图服务尚未配置，核心科普数据仍可浏览。”，**不会白屏**。
-5. 注意：天地图密钥是浏览器端可见的公开密钥（官方按域名/IP 白名单限制），请勿混用需保密的服务器密钥。
+1. 注册 https://console.tianditu.gov.cn/ ，创建“浏览器端”应用获取 tk（免费）。
+2. 本地开发：复制 `.env.example` 为 `.env` 填入 `VITE_TIANDITU_TOKEN`（`.env` 已被 .gitignore 排除，不入库）。
+3. GitHub Actions 部署：**不要写进源码/workflow**，而是添加到仓库
+   **Settings → Secrets and variables → Actions → New repository secret**，Name=`VITE_TIANDITU_TOKEN`，
+   Value=tk；workflow 通过 `${{ secrets.VITE_TIANDITU_TOKEN }}` 注入。
+4. 说明：这是 Vite 浏览器端变量，构建后会出现在客户端 bundle 中（天地图官方设计）；
+   secret 的作用是避免把 token 提交到源码，不是把它变成服务端秘密。
+   部署完成后建议在天地图控制台把 key 限制到正式域名来源。
+5. 未配置 token 时页面自动降级为纯色背景并提示“正式底图服务尚未配置，核心科普数据仍可浏览。”，不白屏。
 
-## 方案 A：Vercel（推荐，最简单）
+## 方案 A：GitHub Pages（正式，推荐）
 
-1. 将项目推送到你自己的 GitHub 仓库（人工 `git push`），或使用 Vercel CLI / 网页文件导入方式上传本目录。
-2. Vercel → New Project → **Import Project**（选择该仓库/目录）。
-3. Framework Preset 选 **Vite**。
-4. Build Command：`npm run build`。
-5. Output Directory：`dist`。
-6. 在项目 Settings → Environment Variables 添加：`VITE_TIANDITU_TOKEN = <你的天地图 tk>`。
-7. **Deploy**。
-8. 部署完成后得到正式 **HTTPS URL**（如 `https://xxx.vercel.app`）。
-9. 将正式 URL 回填到 `submission/01_作品/website-link.txt`（仅一行真实可访问链接，勿填虚假 URL）。
+1. 把本目录推送到 GitHub 仓库 `LJC-nevergiveup/ai-typhoon-risk-lingjing`（人工 `git push`）。
+2. 在仓库 Settings → **Secrets and variables → Actions** 添加 `VITE_TIANDITU_TOKEN`（见上）。
+3. 在仓库 Settings → **Pages** → Build and deployment → Source 选 **GitHub Actions**。
+4. push 到 `master` 或手动触发 Actions（`workflow_dispatch`）→ workflow 自动：
+   `npm ci` → `npm run typecheck` → `npm run build`（注入 secret）→ 上传 `dist/` → 部署 Pages。
+5. 部署完成后得到正式 URL：`https://LJC-nevergiveup.github.io/ai-typhoon-risk-lingjing/`。
+6. 按 `submission/01_作品/deployment-checklist.md` 人工验收，并把 URL 回填 `website-link.txt`。
 
-> 说明：本流程中的“推送仓库 / 授权 Vercel / 设置环境变量”均为人工步骤；项目代码不会自动 push、
-> 不会自动创建公开远程仓库、不会上传未经批准的数据。
+> 说明：工作流文件 `.github/workflows/deploy.yml` 已按 GitHub Pages 官方 Actions
+> （checkout / setup-node / configure-pages / upload-pages-artifact / deploy-pages）编写。
+> `base: './'` 经子路径模拟验证：`/ai-typhoon-risk-lingjing/` 下全部资源（JS/CSS/data/PNG）200，
+> 根路径 `/data/...` 404（无绝对路径依赖）。
 
-## 方案 B：GitHub Pages
+## 方案 B：Vercel（备选，账号验证暂不可用）
 
-1. 在 GitHub 创建仓库并推送本目录（人工 `git push`）。
-2. 用 `gh-pages` 分支或 GitHub Actions（Vite 构建 → `dist` 发布）部署。
-3. `base: './'` 已保证子路径（如 `https://user.github.io/repo/`）下资源路径正确。
-4. 在仓库 Settings → Secrets / Actions 变量中设置 `VITE_TIANDITU_TOKEN`（若用 Actions 构建）。
-5. 将正式 URL 回填到 `submission/01_作品/website-link.txt`。
+1. Vercel → New Project → Import 本仓库（或 CLI）。
+2. Framework=Vite；Build=`npm run build`；Output=`dist`；Install=`npm ci`。
+3. Settings → Environment Variables 添加 `VITE_TIANDITU_TOKEN`。
+4. Deploy 得到 HTTPS URL，回填 `website-link.txt`。
 
 ## 部署注意事项
 
-- 底图 = 天地图官方服务（`tianditu.gov.cn`）；未配置 token 或加载失败时自动降级，核心科普数据不受影响
-  （见 `docs/competition/network-dependency-audit.md`）。
+- 正式运行时外部依赖仅允许天地图官方底图服务（`tianditu.gov.cn`）；CARTO 已移除（0 引用），
+  科学数据全部本地加载（见 `docs/competition/network-dependency-audit.md`）。
 - 地图合规（国家版图最终人工检查）见 `docs/competition/map-compliance-audit.md`。
 - 不要把 `public/data/raw/` 单独上传（构建已自动排除）。

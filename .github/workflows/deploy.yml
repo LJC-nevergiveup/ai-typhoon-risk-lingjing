@@ -1,0 +1,62 @@
+# 部署到 GitHub Pages（正式参赛版本）
+# 仓库：LJC-nevergiveup/ai-typhoon-risk-lingjing（分支 master）
+# 站点：https://LJC-nevergiveup.github.io/ai-typhoon-risk-lingjing/
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20 # 当前稳定 LTS
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+        env:
+          # 正式底图（天地图）token：仅在 GitHub Actions 中以 secret 注入，
+          # 不写入源码 / workflow / 历史；若未设置则构建仍成功（底图降级为纯色背景并提示）。
+          # 注意：这是 Vite 浏览器端变量，构建后会出现在客户端 bundle 中（天地图官方设计），
+          # secret 的作用是避免把 token 提交到源码，不是把它变成服务端秘密。
+          VITE_TIANDITU_TOKEN: ${{ secrets.VITE_TIANDITU_TOKEN }}
+
+      - uses: actions/configure-pages@v5
+
+      - name: Upload dist
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
