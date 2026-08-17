@@ -3,9 +3,12 @@
 面向普通公众与青少年的**交互式台风地理科普**网页作品。
 “首届时空灵境：AI 地理科普行动”参赛项目。
 
+主案例为 **2024 年第 11 号台风“摩羯”（Yagi，2411）**：真实轨迹、两次登陆、环境观测与
+科普型空间关注提示，全部来自可追溯的公开数据（见 `docs/competition/data-provenance.md`）。
+
 ## 技术栈
 
-- React 19 + TypeScript
+- React 19 + TypeScript（strict）
 - Vite 7（`base: './'`，可部署到 GitHub Pages 子路径 / Vercel）
 - MapLibre GL JS 5（地图渲染）
 - ECharts 5（统计图表，按需引入 core + LineChart）
@@ -20,117 +23,77 @@ npm run typecheck  # TypeScript 类型检查
 npm run build      # 类型检查 + 构建（产物在 dist/）
 npm run preview    # 本地预览构建产物
 
-# 真实数据导入
-npm run import:yagi                        # 台风网历史数据 → track.geojson（QA 通过才写盘）
-npm run import:yagi -- --self-test         # 内置合成样本自检（不涉及真实数据）
-npm run import:yagi -- --update-manifest   # QA 通过后启用 REAL 案例
-npm run import:cma                         # CMA-BST 原始文件（待获取）→ track.geojson
-npm run import:environment                 # FY-4B 卫星/SST 官方产品 → environment manifests
-npm run import:environment -- --self-test  # 环境导入器自检
+# 真实数据导入（QA 全部通过才写盘；Python 管线见 scripts/）
+npm run import:yagi            # 台风网历史数据 → track.geojson
+npm run import:environment     # FY-4B 卫星/SST 官方产品 → environment manifests
+python scripts/prepare_terrain.py        # Copernicus GLO-30 → 地形分级
+python scripts/prepare_population.py     # Kontur 人口 → 人口暴露
+python scripts/compute_track_proximity.py # NMC 轨迹 → 路径邻近度
+python scripts/build_risk_awareness.py    # 三因子确定性规则 → 空间关注提示
 ```
 
-## 目录结构
+## 六大章节
+
+| # | 章节 | 一句话 |
+| --- | --- | --- |
+| 01 | 台风从哪来 | 生成海域 · 海温条件 · 水汽来源 · 地转偏向力 |
+| 02 | 台风往哪去 | 历史路径 · 引导气流 · 副热带高压 · 集合预报（示意） |
+| 03 | 台风在哪登陆 | 登陆点 · 强度 · 风圈 · 风雨影响 |
+| 04 | 哪里更危险 | 低洼 / 山洪 / 海岸 / 人口密集 · 空间关注提示 + 点击查询 |
+| 05 | AI能做什么 | 数据整理 · 处理代码 · 交互地图 · 科普表达 · 人工核验 |
+| 06 | 人该怎么做 | 看懂预警 · 提前转移 · 远离危险区 · 应急物资 |
+
+## 科学口径（重要）
+
+- **无机器学习模型**：本作品不包含任何模型训练、权重、随机种子，也不存在
+  训练 / 验证 / 测试集划分。“AI”在本作品中的角色是**数据处理、代码编写、质量核验与
+  叙事表达辅助**，不替代任何预报结论；所有科学事实以权威资料为准并经过人工核验。
+- **风圈数据待接入**：`wind-radii.geojson` 缺少完整权威数据，作品**未伪造、未插值**，
+  保持 `awaiting-authoritative-data` 占位并在界面上明确提示。
+- **数据来源分口径**（详见各 `sources.json`）：
+  - 官方 / 业务：中国气象局台风网历史轨迹、中央气象台登陆业务通报；
+  - 权威公开：FY-4B AGRI 真彩 / SST（国家卫星气象中心）、NOAA Coral Reef Watch SST、
+    Copernicus GLO-30；
+  - 第三方公开：Kontur Population 400m H3（HDX，CC BY）；
+  - 衍生分析：台风路径邻近度、科普型空间关注提示（确定性、可审计规则，
+    `purpose=science-communication-only`，**不属于官方灾害风险预报**）。
+- 机制示意与预测路径示意均标注“示意、非真实”，绝不冒充真实大气分析场或集合预报。
+
+## 目录结构（精简）
 
 ```
-├── public/
-│   ├── favicon.svg
-│   └── data/                    # 静态地理数据（不参与打包，运行时 fetch）
-│       ├── README.md            # 数据目录约定（含真实数据接入铁律）
-│       ├── demo/                # DEMO 数据（-demo 后缀 + demo:true 标记）
-│       ├── raw/                 # 权威数据集原始文件（只读，不入库）
-│       │   └── cma/             # CMA 最佳路径原始文件（CH2024BST.txt，待提供）
-│       └── real/
-│           └── yagi-2024/       # 2024 年第 11 号台风“摩羯”（Yagi）
-│               ├── manifest.json      # 案例清单与数据状态（available）
-│               ├── track.geojson      # 真实轨迹（台风网官方历史数据，36 时次）
-│               ├── landfalls.geojson  # 两次真实登陆（业务通报证据链）
-│               ├── wind-radii.geojson # 风圈（占位，awaiting-authoritative-data）
-│               ├── environment/       # 环境观测资料（FY-4B 卫星/SST，待人工下载）
-│               └── sources.json       # 数据来源清单（historical-track / operational-bulletin 分口径）
-├── scripts/
-│   ├── import-cma-best-track.ts   # CMA-BST 原始文件导入（解析/单位换算/QA/输出）
-│   ├── import-nmc-track.ts        # 台风网历史数据 → track.geojson（含 QA）
-│   └── import-nsmc-environment.ts # FY-4B 卫星/SST 官方产品 → environment manifests
-├── docs/competition/
-│   ├── ai-creation-log.md         # AI 创作记录（各轮任务/核验/问题修正）
-│   └── data-provenance.md         # 数据来源追溯（全部真实数值的证据链）
-├── src/
-│   ├── components/              # UI 组件（每个组件一个目录 + CSS Module）
-│   │   ├── Header/              # 顶部标题栏 + 案例切换 + REAL/DEMO 状态徽标
-│   │   ├── ChapterNavigation/   # 六大章节导航（左侧）
-│   │   ├── TyphoonMap/          # 地图容器与图层管理（含登陆点图层）
-│   │   ├── LayerControl/        # 地图图层控制面板（含登陆点图例）
-│   │   ├── Timeline/            # 底部时间轴（由真实 timestamp 驱动）
-│   │   ├── InfoPanel/           # 右侧信息面板（要点/图表/数据来源/数据状态）
-│   │   └── EChart/              # ECharts 通用封装
-│   ├── data/                    # 数据层：章节、图层、案例注册表、数据 loader
-│   ├── services/                # 服务层：地图配置、图层样式、图表配置
-│   ├── styles/                  # 全局样式与主题变量
-│   ├── types/                   # 全部数据结构的类型定义
-│   ├── utils/                   # 纯函数工具（地理、格式化）
-│   ├── App.tsx                  # 页面骨架与全局状态
-│   └── main.tsx
-├── index.html
-└── vite.config.ts
+public/data/
+├── demo/                     # 合成演示（-demo 后缀 + demo:true，严格隔离）
+├── raw/                      # 原始权威数据（只读，二进制不入库）
+└── real/yagi-2024/           # 摩羯（Yagi）真实数据包
+    ├── track.geojson         # 台风网官方历史轨迹（36 时次）
+    ├── landfalls.geojson     # 中央气象台业务通报（2 次登陆）
+    ├── wind-radii.geojson    # 风圈（占位，未伪造）
+    ├── environment/          # FY-4B 卫星云图（6 帧）+ NOAA CRW SST（2 帧）
+    ├── risk/                 # terrain/population/proximity/attention + grid + sources + aoi
+    ├── schematic/            # 引导气流 / 预测不确定性示意（schematic:true）
+    └── sources.json
+src/
+├── components/               # Header / ChapterNavigation / TyphoonMap / LayerControl /
+│                             #   Timeline / InfoPanel / EChart
+├── data/                     # cases / chapters / layers 注册表 + loaders
+├── services/                 # 地图配置、图层样式、图表配置
+├── types/                    # 全部数据结构类型（唯一权威）
+└── utils/                    # 纯函数工具（地理、格式化）
+scripts/                      # 数据导入与空间分析（可复现，含 QA 自检）
+docs/competition/             # AI 创作记录 + 数据来源追溯（比赛材料）
 ```
-
-## 已实现功能
-
-### 第一阶段（基础骨架）
-
-- 顶部标题、左侧六章节导航（联动信息面板与图层）、地图视觉中心
-- 图层控制面板（路径/风圈/卫星云图/风险分区/避险点）
-- 底部时间轴（拖拽/播放，驱动台风位置标记）
-- 右侧信息面板（章节要点 + ECharts 时序图）
-- 地图点要素点击弹出详情
-
-### 第二阶段（真实台风案例机制）
-
-- **案例系统**：`src/data/cases.ts` 注册表 + `public/data/real/<id>/` 数据包（manifest 驱动）；
-  新增台风无需修改组件
-- **双模式加载**：DEMO / REAL 严格物理隔离；REAL 数据状态非 `available` 时返回
-  `unavailable` 并明确提示，**绝不静默回退到 DEMO**；解析错误返回明确 error
-- **真实轨迹模型**：id / timestamp / longitude / latitude / centralPressure /
-  maxWindSpeed / intensity / source（必填）+ grade / movementDirection /
-  movementSpeed / windRadius7/10/12（可选，安全处理缺失）
-- **登陆点**：独立红心符号 + 图层开关图例 + Popup 显示登陆地点/时间/强度/风速/气压/来源
-- **数据来源机制**：`sources.json` + InfoPanel「数据来源」卡片，前端可见 organization /
-  datasetName / url / accessDate / description / licenseOrUsageNote
-- **任意时间序列**：时间轴完全由真实 timestamp 生成，不假设 6 小时步长 / 固定点数 / 固定起止
-- **UI 区分**：页首案例选择器 + REAL/DEMO 状态徽标；待接入时地图上有明确提示条
-
-### 第三阶段（环境观测资料 · 台风从哪来）
-
-- **章节 01 三步科普**：它在哪里出现（初始时次/位置）→ 海洋提供了什么（SST，非绝对化表述）→ 卫星看到了什么（真实卫星帧）
-- **真实卫星云图 / SST 图层**：FY-4B AGRI 优先；按时间轴显示最近帧，状态条明示影像时间与轨迹时次的时间差；卫星云图透明度可调；数据未接入时图层显示“真实资料待接入”，绝不冒充
-- **环境观测资料卡片**：卫星/仪器/产品/日期/机构/处理步骤/链接，全部可审计
-- **导入工具**：`import:environment`（人工下载官方产品后一键校验并生成 manifest）
 
 ## 数据状态
 
 | 案例 | 类型 | 状态 |
 | --- | --- | --- |
-| 合成演示台风 | DEMO | available（仅用于界面验证，非真实数据） |
-| 2024 年第 11 号台风“摩羯”（Yagi） | REAL | **available**（轨迹 36 时次 + 两次登陆 + FY-4B 真彩卫星云图 6 帧 + SST 2 帧 + 风险分析四图层与点击查询；风圈待接入，明确提示不伪造） |
-
-## CMA 数据导入流程
-
-1. 从 tcdata.typhoon.org.cn 下载「CMA 热带气旋最佳路径数据集」2024 年文件 `CH2024BST.txt`，
-   放入 `public/data/raw/cma/`（只读，不入库）
-2. `npm run import:cma` —— 解析 header 与记录、自动识别经纬度单位（0.1°/0.01°）、
-   时间统一为 ISO 8601 UTC、输出 `real/yagi-2024/track.geojson`，并打印完整 QA 报告；
-   任何异常（重复时间戳、非法坐标、缺失字段、未知强度标记）都会中止且不写盘
-3. 前端验证 REAL 模式后，`npm run import:cma -- --update-manifest` 将 manifest 置为 available
+| 合成演示台风 | DEMO | available（仅界面验证，非真实数据） |
+| 2024 年第 11 号台风“摩羯”（Yagi） | REAL | **available**（轨迹 36 时次 + 两次登陆 + 卫星云图 6 帧 + SST 2 帧 + 风险四图层与点击查询；风圈待接入，明确提示不伪造） |
 
 ## 已知注意点
 
-- 底图与卫星云图瓦片来自境外服务（CARTO / NASA GIBS），个别网络环境下可能加载较慢；
-  替换时修改 `src/services/mapConfig.ts`
-- 卫星云图当前为固定时次演示瓦片，正式版本应接入业务化云图服务
-
-## 下一步计划
-
-1. 录入摩羯（Yagi）权威轨迹/登陆点/风圈数据（CMA-BST / IBTrACS / JMA 核对）
-2. 卫星云图业务化（时间匹配的 WMS/WMTS）
-3. 各章节专属图表与交互（历史路径统计、登陆强度对比等）
-4. 风险分区与避险路线（后续阶段）
+- 底图与卫星云图瓦片来自境外服务（CARTO / NASA GIBS），个别网络环境可能加载较慢。
+- 卫星云图采用人工下载的 FY-4B 官方产品，经标称网格重投影与区域裁剪，处理步骤见各帧
+  `processing`；处理后的图像不称为“原始卫星数据”。
+- 开发时若改动数据后界面“没反应”，多为 HMR 陈旧会话：重启 `npm run dev` 并 Ctrl+F5。

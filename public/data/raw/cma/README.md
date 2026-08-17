@@ -31,4 +31,6 @@ npm run import:cma -- --update-manifest   # QA 通过后同步启用 REAL 案例
 ```
 
 > 当前状态（2026-08-15 检查）：`CH2024BST.txt` **缺失**。请先按上述来源取得文件并放入本目录，
-> 然后运行导入命令。在此之前，yagi-2024 案例保持 `awaiting-authoritative-data`，前端不会用任何数据冒充真实轨迹。
+> 然后运行导入命令进行交叉核验。注意：本案例轨迹已采用同一机构（中国气象局）台风网官方历史数据
+> 接入并置为 `available`（见 `raw/nmc/README.md` 与 `real/yagi-2024/sources.json`）；
+> CMA-BST 仅用于交叉核验、不阻塞案例，任何缺失字段保持缺失、不冒充。

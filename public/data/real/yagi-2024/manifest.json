@@ -9,7 +9,7 @@
   "startTime": "2024-09-01T00:00:00Z",
   "endTime": "2024-09-08T12:00:00Z",
   "status": "available",
-  "description": "2024 年第 11 号台风“摩羯”（Yagi）。轨迹已接入中国气象局台风网官方历史台风数据（36 个时次，2024-09-01 00:00 UTC — 2024-09-08 12:00 UTC，峰值 62 m/s / 915 hPa）。登陆点与风圈数据仍待接入（landfalls.geojson / wind-radii.geojson 保持占位，未伪造）。",
+  "description": "2024 年第 11 号台风“摩羯”（Yagi）。已接入：中国气象局台风网官方历史轨迹（36 个时次，2024-09-01 00:00 UTC — 2024-09-08 12:00 UTC，峰值 62 m/s / 915 hPa）；中央气象台业务通报的 2 次登陆事件（2024-09-06 文昌市翁田镇 08:20 UTC、湛江市徐闻县 14:20 UTC，坐标按通报地名地理编码）。风圈数据仍待接入（wind-radii.geojson 保持占位，未伪造、未插值）。",
   "files": {
     "track": "track.geojson",
     "landfalls": "landfalls.geojson",

@@ -247,8 +247,8 @@ export default function TyphoonMap({
         : terrainClass === 2
           ? '5–10 m · 地形关注：中'
           : terrainClass === 1
-            ? '10–30 m · 地形关注：低'
-            : '>30 m · 地形关注：无'
+            ? '>10 m · 地形关注：低'
+            : '—'
     const popLabel =
       popClass === 3
         ? '高（≥2000 人/km²）'

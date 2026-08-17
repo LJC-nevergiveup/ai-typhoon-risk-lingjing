@@ -13,7 +13,7 @@
   ],
   "factors": {
     "terrain": { "source": "Copernicus DEM GLO-30", "unit": "m", "note": "低海拔不代表一定会被淹没，仅提示地形关注程度" },
-    "population": { "source": "WorldPop 2020（100m，人数/像元）", "unit": "人/km²", "note": "人口暴露（exposure），不代表伤亡风险" },
+    "population": { "source": "Kontur Population 400m H3（HDX 公开数据，发布版 2023-11-01，人口基础约 2020）", "unit": "人/km²", "note": "人口暴露（exposure），不代表伤亡风险" },
     "proximity": { "source": "NMC 台风网历史轨迹（derived）", "unit": "km", "note": "台风路径邻近度 ≠ 风圈/风速影响范围" }
   },
   "attentionRule": {

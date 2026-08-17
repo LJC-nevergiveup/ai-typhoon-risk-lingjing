@@ -15,7 +15,7 @@
   "disclaimer": "本结果为科普型空间分析，不属于官方灾害风险预报；实际防灾避险以官方预警为准。",
   "inputs": {
     "terrain": "Copernicus DEM GLO-30（原始数据）",
-    "population": "WorldPop 2020（原始数据）",
+    "population": "Kontur Population 400m H3（HDX 公开数据，发布版 2023-11-01，人口基础约 2020）",
     "proximity": "NMC 台风网历史轨迹 → 最小测地距离（derived-analysis）"
   },
   "rule": [

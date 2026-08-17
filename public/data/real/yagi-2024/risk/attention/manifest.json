@@ -11,12 +11,12 @@
     21.2
   ],
   "legend": "红=重点关注｜橙=较高关注｜黄=一般关注｜浅蓝=海域",
-  "source": "derived from Copernicus DEM + WorldPop + NMC track（确定性规则）",
+  "source": "derived from Copernicus DEM + Kontur Population + NMC track（确定性规则）",
   "sourceUrl": "real/yagi-2024/risk/aoi.json",
   "sourceType": "derived-analysis",
   "purpose": "science-communication-only",
   "processing": [
-    "inputs: terrain classes (Copernicus DEM), population density classes (WorldPop), track proximity classes (NMC track)",
+    "inputs: terrain classes (Copernicus DEM), population density classes (Kontur Population 400m), track proximity classes (NMC track)",
     "deterministic rule as documented in attention-summary.json and aoi.json",
     "no weights tuned to match visual expectations"
   ],

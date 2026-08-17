@@ -79,7 +79,7 @@ def main():
         "disclaimer": "本结果为科普型空间分析，不属于官方灾害风险预报；实际防灾避险以官方预警为准。",
         "inputs": {
             "terrain": "Copernicus DEM GLO-30（原始数据）",
-            "population": "WorldPop 2020（原始数据）",
+            "population": "Kontur Population 400m H3（HDX 公开数据，发布版 2023-11-01，人口基础约 2020）",
             "proximity": "NMC 台风网历史轨迹 → 最小测地距离（derived-analysis）",
         },
         "rule": [
@@ -104,12 +104,12 @@ def main():
         "imagePath": "real/yagi-2024/risk/attention/attention.png",
         "bbox": AOI,
         "legend": "红=重点关注｜橙=较高关注｜黄=一般关注｜浅蓝=海域",
-        "source": "derived from Copernicus DEM + WorldPop + NMC track（确定性规则）",
+        "source": "derived from Copernicus DEM + Kontur Population + NMC track（确定性规则）",
         "sourceUrl": "real/yagi-2024/risk/aoi.json",
         "sourceType": "derived-analysis",
         "purpose": "science-communication-only",
         "processing": [
-            "inputs: terrain classes (Copernicus DEM), population density classes (WorldPop), track proximity classes (NMC track)",
+            "inputs: terrain classes (Copernicus DEM), population density classes (Kontur Population 400m), track proximity classes (NMC track)",
             "deterministic rule as documented in attention-summary.json and aoi.json",
             "no weights tuned to match visual expectations",
         ],
@@ -170,12 +170,12 @@ def main():
             "sourceType": "terrain",
         },
         {
-            "organization": "WorldPop（University of Southampton）",
-            "datasetName": "中国 2020 年 100m 人口（unconstrained）",
-            "url": "https://www.worldpop.org/",
+            "organization": "Kontur（via HDX，Humanitarian Data Exchange）",
+            "datasetName": "China: Population Density for 400m H3 Hexagons（2023-11-01 发布版，人口基础约 2020）",
+            "url": "https://data.humdata.org/dataset/kontur-population-china",
             "accessDate": "2026-08-16",
-            "description": "人口暴露因子（原始数据）；100m 像元按 0.01° 网格求和为人数，再换算密度（人/km²），数值未修改。",
-            "licenseOrUsageNote": "CC BY 4.0，注明 WorldPop",
+            "description": "人口暴露因子（原始数据）；400m 六边形人口按质心归入 0.01° 网格求和为人数，再换算密度（人/km²），数值未修改。（注：最初计划使用 WorldPop 中国 100m，因其完整文件约 4.6 GB 下载受限，故改用 Kontur 公开数据。）",
+            "licenseOrUsageNote": "CC BY（Kontur / HDX），注明来源",
             "role": "primary",
             "scope": "人口暴露因子（population）",
             "sourceType": "population",
@@ -193,7 +193,7 @@ def main():
         },
     ]
     with open(os.path.join(WORK, "out", "sources.json"), "w", encoding="utf-8") as f:
-        json.dump(sources, f, ensure_ascii=False, indent=2)
+        json.dump({"sources": sources}, f, ensure_ascii=False, indent=2)
 
     print("===== QA: attention =====")
     print(f"AOI: {AOI} | grid: {NCOL}x{NROW} @ {RES}° | CRS: EPSG:4326")

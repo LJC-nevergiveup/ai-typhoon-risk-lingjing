@@ -161,6 +161,33 @@
 
 ---
 
+## Round 6.5 · 提交前溯源与文档一致性清理
+
+**Prompt 关键内容（摘录）**：提交前一致性清理，不新增功能/数据集/算法/图层/UI；修复「数据内容 vs 脚本 vs manifest vs summary vs README vs provenance 文档」的不一致；全部科学数值必须逐字节不变；README 简洁并明确「无机器学习模型/训练/权重/随机种子/数据集划分」与「AI = 数据处理 / 代码 / 核验 / 叙事辅助」。
+
+**AI 参与环节**：
+- 全库 grep 定位 33 处 WorldPop，区分「历史记录（保留）」与「当前口径（应改 Kontur）」；修改 `scripts/build_risk_awareness.py` 4 处与 `risk/aoi.json` 1 处。
+- 重建 ASCII 临时工作目录，完整重跑 4 个风险脚本（prepare_terrain → prepare_population → compute_track_proximity → build_risk_awareness），并重新下载 Natural Earth 110m 海岸线掩膜。
+- 修复 `yagi-2024/manifest.json` 描述（反映轨迹 + 登陆已接入、风圈待接入）；`src/data/cases.ts` 的 dataStatus/描述/起止时间；TyphoonMap 点击查询地形分级标签（「10–30 m」→「>10 m」，消除与查询网格三分类语义不一致）。
+- 更新 `public/data/README.md`、`public/data/raw/cma/README.md`、根 `README.md`（补「无机器学习模型」与「AI 角色」声明）。
+
+**人工核验**（重跑管线后逐项比对，全部与提交前一致）：
+- 轨迹 36 点 / 风速 13–62 m/s / 气压 915–1004 hPa / 时间 2024-09-01T00:00Z–09-08T12:00Z；登陆 2 次；卫星 6 帧；SST 2 帧。
+- 关注分级计数：重点关注 1,562 / 较高关注 36,762 / 一般关注 39,876；网格 340×230 = 78,200 像元。
+- terrain / population / proximity 的 summary 与 PNG、`grid.json` 重生成后与旧版逐字节相同（git 未列入变更，证明科学数值零改动）。
+
+**发现的问题与修正**：
+1. `build_risk_awareness.py` 硬编码 WorldPop 为「当前人口来源」→ 改为 Kontur，并重生成 attention-summary / attention manifest / sources.json。
+2. 脚本写 `sources.json` 时输出裸数组 `[...]`，而 loader 期望对象 `{"sources":[...]}`（原文件为手工包装的对象）→ 修复为 `json.dump({"sources": sources}, ...)`，消除「脚本→输出→loader」不一致。
+3. `cases.ts` 仍把 yagi-2024 标为 awaiting-authoritative-data 且描述「待接入」（实际已 available，且该描述直接展示给用户）→ 修正为 available + 准确描述。
+4. 点击查询地形标签误用展示层 4 档（0–5 / 5–10 / 10–30 / >30）套查询网格 3 档（≤5 / 5–10 / >10），出现「10–30 m」错配与不可达的「>30 m」分支 → 改为「>10 m · 地形关注：低」。
+5. `raw/cma/README.md` 仍暗示「案例 awaiting 等待 CMA-BST」（实际已用台风网接入 available，CMA-BST 仅交叉核验）→ 修正。
+6. 行尾说明：Python 在 Windows 生成的文件为 CRLF；`risk/sources.json` 原为手工包装 LF → 本次按各自 HEAD 行尾最小化 diff（sources.json 保持 LF，其余脚本生成物保持 CRLF），未做全局行尾统一，以免产生字节级噪音。
+
+**验证结果**：typecheck 0 错误；build 成功；dev 重启正常（5173）；风险数据重生成数值字节级不变。
+
+---
+
 ## 关键决策记录（为什么这么做）
 
 1. **为什么拒绝伪造风圈**：YAGI 生命周期风圈数据缺失（业务通报仅有登陆时刻的少数描述，且非完整风圈序列）。制造/插值风圈会把未观测信息伪装成观测事实，违背“数值必须有来源、可追溯”。作品明确显示风圈“待接入”，并在数据模型中为 sparse 观测预留能力，禁止插值冒充完整序列。
@@ -177,7 +204,10 @@
 | 1 | npm install / typecheck / build / dev | 通过 |
 | 2 | REAL 不假装成功、DEMO 隔离 | 通过 |
 | 2.5 | 36 点 QA + 公开资料交叉核验 | 通过 |
-| 3 | 官方原文逐字比对四次登陆数值 | 通过（null=0） |
-| 4 | importer 自检 + 缺失数据错误路径 | 通过 |
+| 3 | 官方原文逐字比对两次登陆数值 | 通过（null=0） |
+| 4 | 卫星几何方向/比例定量验证 + SST 交叉 | 通过 |
+| 5 | 风险 QA 数值审阅 + 数据源变更如实记录 | 通过 |
+| 6 | 示意图/文案/应急包逐条核对 | 通过 |
+| 6.5 | 重跑风险管线，科学数值字节级不变 | 通过 |
 
-**未解决事项**：tcdata WAF（CMA-BST 文件待人工获取）；FY-4B 档案产品待人工下载；风圈数据仍缺失。
+**未解决事项**：tcdata WAF（CMA-BST 文件待人工获取，仅用于交叉核验）；风圈数据仍缺失（保持占位，未伪造/未插值）。
