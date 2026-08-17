@@ -214,6 +214,27 @@
 
 ---
 
+## Submission P0 Fix（Round 7 之后，投稿前）
+
+**任务**：正式底图移除 CARTO → 切换为国家地理信息公共服务平台“天地图”（官方服务，直连，无第三方代理）；token 环境变量与降级；03 章风圈文案与真实数据状态对齐；AI 截图与正式 URL 升级为 P0 SUBMISSION_REQUIRED；Vercel 部署准备。
+
+**AI 参与环节**：
+- `src/services/mapConfig.ts`：删除 CARTO `MAP_STYLE_URL`；新增 `VITE_TIANDITU_TOKEN`、天地图署名与 `FALLBACK_MAP_STYLE`（本地纯色回退）。
+- `src/services/layers.ts`：新增天地图 WMTS 栅格源（`t{s}.tianditu.gov.cn`，vec_w 矢量 + cva_w 注记）与图层构建，源/图层 id 独立于业务图层清理集合（跨案例保持）。
+- `src/components/TyphoonMap/TyphoonMap.tsx`：基础样式改为本地回退样式（不再依赖在线 style URL）；load 后按 token 叠加天地图；token 缺失提示“正式底图服务尚未配置，核心科普数据仍可浏览。”；瓦片加载失败提示“在线基础地图暂时无法加载，核心科普内容仍可浏览。”；不白屏、不无限 loading、无 stack trace。
+- `src/styles/global.css`：天地图署名与比例尺控件上移，不被底部时间轴遮挡（attribution 可见）。
+- `src/data/chapters.ts`：03 章风圈 keyPoint 改为“业务预报常用七级/十级/十二级风圈描述大风影响范围；本案例未取得完整可追溯的历史风圈时序，正式展示不使用推算或插值风圈（数据待接入）”，与 wind-radii 占位状态一致。
+- 新增 `.env.example`；`.gitignore` 排除 `.env*`；`src/vite-env.d.ts` 补 `VITE_TIANDITU_TOKEN` 类型。
+- 文档：`map-compliance-audit.md`（天地图 + 人工检查清单 + 明确“不宣称已通过审核”）、`network-dependency-audit.md`、`asset-attribution.md`、`BLOCKERS.md`（截图/URL 升级 P0 SUBMISSION_REQUIRED）、`DEPLOYMENT.md`（Vercel 9 步 + token 申请）、`screenshot-checklist.md` / `screenshots/README.md`（P0 + 建议命名）。
+
+**人工核验**：
+- typecheck 0 错误；build 通过；`dist/assets` 中 **0 处 carto/cartocdn 引用**（CARTO 彻底退出正式 runtime）。
+- 科学数值零改动；03 章文案与数据状态一致；token 缺失路径走查（纯色回退 + 提示，不白屏）。
+
+**验证结果**：通过。剩余 P0 均为人工项：天地图 token、最终地图人工检查、≥2 张真实截图、正式公网 URL、作者/团队信息。
+
+---
+
 ## 关键决策记录（为什么这么做）
 
 1. **为什么拒绝伪造风圈**：YAGI 生命周期风圈数据缺失（业务通报仅有登陆时刻的少数描述，且非完整风圈序列）。制造/插值风圈会把未观测信息伪装成观测事实，违背“数值必须有来源、可追溯”。作品明确显示风圈“待接入”，并在数据模型中为 sparse 观测预留能力，禁止插值冒充完整序列。
@@ -236,5 +257,6 @@
 | 6 | 示意图/文案/应急包逐条核对 | 通过 |
 | 6.5 | 重跑风险管线，科学数值字节级不变 | 通过 |
 | 7 | 默认 REAL 案例 / 底图降级 / dist 剔除原始数据 / 全文科学与网络审计 | 通过 |
+| P0-Fix | 底图天地图化 / CARTO 0 引用 / 03 风圈文案对齐 / token 缺失降级 | 通过 |
 
-**未解决事项**：地图底图合规需人工核查（P0，见 `docs/competition/map-compliance-audit.md`）；tcdata WAF（CMA-BST 文件待人工获取，仅交叉核验）；风圈数据仍缺失（保持占位，未伪造/未插值）。
+**未解决事项**：地图底图合规最终人工检查（底图已换天地图官方服务；未取得正式证明前不宣称“已通过审核”）；天地图 token 待申请配置；AI 截图 ≥2 张、正式公网 URL、作者/团队信息待人工补录；tcdata WAF（CMA-BST 文件待人工获取，仅交叉核验）；风圈数据仍缺失（保持占位，未伪造/未插值）。

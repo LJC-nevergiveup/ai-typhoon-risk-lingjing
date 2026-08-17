@@ -68,7 +68,7 @@
 | `favicon.svg` | SVG | **自建**（台风漩涡抽象图形） | 本项目 | —（本地自建） | 自建，无第三方来源 | 是（自建） | 手工绘制 | 站点 favicon（`public/favicon.svg`） |
 | 界面图标（💧🥫🔦🔋💊🪪🩹📱🎯 等） | 图标（Unicode emoji） | 系统 emoji 字体 | 操作系统/Unicode Consortium | — | 随系统字体渲染，无外部图标字体/图标库 | 否 | 无 | 06 章应急包、04 章"定位到分析区"等 |
 | MapLibre GL 控件图标（zoom/compass/attribution/fullscreen 等 SVG） | 图标（SVG） | MapLibre GL JS npm 依赖内置资源 | MapLibre | https://maplibre.org/ | MapLibre GL 开源许可（BSD-3-Clause），随 `node_modules/maplibre-gl` 打包 | 否（CSS 反色 `filter: invert(0.85)` 仅视觉调整） | 无 | 地图缩放/罗盘/归属控件 |
-| 底图：CARTO Dark Matter | 在线矢量底图样式/瓦片 | CARTO Basemaps Dark Matter（**OSM 派生**） | CARTO（数据源 © OpenStreetMap contributors） | https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json | **需保留署名**（代码已设 `MAP_ATTRIBUTION = '© OpenStreetMap contributors © CARTO'`） | 否（在线引用） | 无（在线加载；另有离线回退纯色背景样式，不含外部瓦片） | 全局地图底图（`src/services/mapConfig.ts`） |
+| 底图：天地图（vec_w 矢量 + cva_w 注记） | 在线栅格瓦片（WMTS，官方服务） | 国家地理信息公共服务平台（自然资源部） | 天地图 | https://tianditu.gov.cn | 官方服务；**需保留署名**（代码 `MAP_ATTRIBUTION = '© 国家地理信息公共服务平台 天地图（tianditu.gov.cn）'`） | 否（在线引用） | 需 `VITE_TIANDITU_TOKEN`（参赛者自行申请）；token 缺失/加载失败回退本地纯色背景并提示 | 全局地图底图（`src/services/mapConfig.ts` + `TyphoonMap`） |
 | 演示卫星瓦片：NASA GIBS Himawari-8 TrueColor（**仅 DEMO，`demoOnly`**） | 在线栅格瓦片（WMTS） | NASA GIBS / JMA Himawari-8 真彩 WMTS（演示用途固定时次瓦片） | NASA GIBS / 日本气象厅 JMA | https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/Himawari_TrueColor/default/2025-07-22T06:00:00Z/250m/{z}/{y}/{x}.jpg | 署名 `NASA GIBS / JMA Himawari-8（演示瓦片）`；正式作品应改为业务化云图服务 | 否（在线引用，演示瓦片） | 无 | DEMO 案例"卫星云图"图层（`satellite`，demoOnly） |
 
 ---
@@ -97,4 +97,6 @@
   2. SST 展示图层为 NOAA CRW **多源卫星融合日分析场**（非单星瞬时观测），并需注明 Coral Reef Watch / ERDDAP；
   3. 风险四图层为 derived 分析，注意保留"科普型空间分析、非官方风险预报"免责声明；
   4. 两个 schematic GeoJSON 需保留"schematic:true / 机制示意 / 非真实集合预报"标注；
-  5. 底图 CARTO Dark Matter 需保留"© OpenStreetMap contributors © CARTO"署名（代码已配置）。
+  5. 底图已替换为天地图（国家地理信息公共服务平台，官方服务），需保留
+     `© 国家地理信息公共服务平台 天地图（tianditu.gov.cn）` 署名（代码已配置，并已调整位置不被时间轴遮挡）；
+     开发阶段曾使用的 CARTO Dark Matter 已移除，正式版不再请求任何 CARTO 域名（历史见 map-compliance-audit.md）。

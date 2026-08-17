@@ -128,7 +128,8 @@ REAL 数据包内容与状态（磁盘已核对）：
 
 - 前端：React 19（函数组件+hooks）+ TypeScript strict；状态集中在 App.tsx（案例/章节/图层/
   时间索引/风险查询/AOI 信号/引导）。
-- 地图：MapLibre GL JS 5，CARTO Dark Matter 底图；业务图层（轨迹/风圈/登陆点/环境帧/风险栅格/
+- 地图：MapLibre GL JS 5，正式底图 = 天地图（国家地理信息公共服务平台，vec_w+cva_w，需
+  `VITE_TIANDITU_TOKEN`；开发阶段曾用 CARTO Dark Matter，提交前已移除）；业务图层（轨迹/风圈/登陆点/环境帧/风险栅格/
   示意线/AOI 边界）全部通过 `src/services/layers.ts` 的 id 与样式集中管理，开关经
   `LAYER_TOGGLE_MAP` 与 activeLayers 状态联动。
 - 图表：ECharts（core 按需引入 LineChart），封装于 components/EChart。
@@ -248,7 +249,8 @@ REAL 数据包内容与状态（磁盘已核对）：
 - SST 展示层与 FY-4B 观测来源不同（已在 sources/manifest 记录）。
 - HMR 陈旧会话问题（解决方式：重启 dev server + Ctrl+F5）。
 - 构建产物存在 chunk>500kB 提示（maplibre 本体约 1MB，可接受）。
-- **P0：地图底图合规需人工核查**（CARTO Dark Matter 为 OSM 派生，无中国审图号；见 docs/competition/map-compliance-audit.md）。
+- **P0（人工项）：地图底图合规最终人工检查**（底图已换天地图官方服务；未取得正式证明前不宣称“已通过审核”；
+  见 docs/competition/map-compliance-audit.md）；天地图 token、≥2 张真实截图、正式 URL、作者信息待人工补录。
 - 作者/团队名与正式 URL 待人工填写（submission/ 内 TODO_USER_FILL / website-link.txt）。
 
 # Pending Tasks

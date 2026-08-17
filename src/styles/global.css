@@ -29,6 +29,12 @@ ul {
   list-style: none;
 }
 
+/* 底图署名（天地图）与比例尺不被底部时间轴遮挡 */
+.maplibregl-ctrl-bottom-right,
+.maplibregl-ctrl-bottom-left {
+  bottom: 104px;
+}
+
 button {
   font-family: inherit;
   cursor: pointer;

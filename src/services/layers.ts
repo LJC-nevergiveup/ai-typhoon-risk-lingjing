@@ -3,9 +3,15 @@ import type {
   FillLayerSpecification,
   LineLayerSpecification,
   RasterLayerSpecification,
+  RasterSourceSpecification,
 } from 'maplibre-gl'
 import type { LayerId } from '../types'
-import { SATELLITE_ATTRIBUTION, SATELLITE_TILE_SIZE, SATELLITE_TILE_URL } from './mapConfig'
+import {
+  SATELLITE_ATTRIBUTION,
+  SATELLITE_TILE_SIZE,
+  SATELLITE_TILE_URL,
+  TIANDITU_ATTRIBUTION,
+} from './mapConfig'
 
 /**
  * 地图样式层定义（与数据加载、UI 组件解耦）。
@@ -264,6 +270,43 @@ export const SATELLITE_SOURCE_SPEC = {
   tileSize: SATELLITE_TILE_SIZE,
   maxzoom: 10,
   attribution: SATELLITE_ATTRIBUTION,
+}
+
+/* ---------- 正式底图：天地图 WMTS 栅格（官方直连，无第三方代理） ---------- */
+
+/** 天地图底图源/图层 id（独立于业务图层清理集合，跨案例保持） */
+export const TIANDITU_SOURCE_IDS = { vec: 'tianditu-vec', cva: 'tianditu-cva' } as const
+export const TIANDITU_LAYER_IDS = { vec: 'tianditu-vec-layer', cva: 'tianditu-cva-layer' } as const
+
+/** 天地图 WMTS 栅格源（官方 t{s}.tianditu.gov.cn，直连官方服务） */
+export function tiandituRasterSource(
+  token: string,
+  layer: 'vec' | 'cva',
+): RasterSourceSpecification {
+  const subs = ['0', '1', '2', '3', '4', '5', '6', '7']
+  return {
+    type: 'raster',
+    tiles: subs.map(
+      (s) =>
+        `https://t${s}.tianditu.gov.cn/${layer}_w/wmts?tk=${encodeURIComponent(
+          token,
+        )}&SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=${layer}&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}`,
+    ),
+    tileSize: 256,
+    minzoom: 1,
+    maxzoom: 18,
+    attribution: TIANDITU_ATTRIBUTION,
+  }
+}
+
+/** 天地图栅格图层（vec 矢量 + cva 注记叠加） */
+export function buildTiandituLayer(layerId: string, sourceId: string): RasterLayerSpecification {
+  return {
+    id: layerId,
+    type: 'raster',
+    source: sourceId,
+    paint: { 'raster-opacity': 1, 'raster-fade-duration': 0 },
+  }
 }
 
 /* ---------- 环境观测（真实卫星帧 / SST 单帧图像） ---------- */

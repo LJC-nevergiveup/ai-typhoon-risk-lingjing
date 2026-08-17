@@ -16,14 +16,16 @@ import {
   FALLBACK_MAP_STYLE,
   MAP_ATTRIBUTION,
   MAP_CENTER,
-  MAP_STYLE_URL,
   MAP_ZOOM,
+  TIANDITU_TOKEN,
 } from '../../services/mapConfig'
 import {
   LAYER_IDS,
   LAYER_TOGGLE_MAP,
   SATELLITE_SOURCE_SPEC,
   SOURCE_IDS,
+  TIANDITU_LAYER_IDS,
+  TIANDITU_SOURCE_IDS,
   buildEnvSatelliteLayer,
   buildEnvSstLayer,
   buildLandfallCoreLayer,
@@ -45,10 +47,12 @@ import {
   buildSteeringRecurveLayer,
   buildTrackLineLayer,
   buildTrackPointsLayer,
+  buildTiandituLayer,
   buildUncertaintyLinesLayer,
   buildWindRingsFillLayer,
   buildWindRingsOutlineLayer,
   envImageSourceSpec,
+  tiandituRasterSource,
 } from '../../services/layers'
 import { buildLandfallFeatures, dataUrl } from '../../data/loaders'
 import {
@@ -193,7 +197,8 @@ export default function TyphoonMap({
     uncertainty: false,
   })
   const [ready, setReady] = useState(false)
-  const [basemapFallback, setBasemapFallback] = useState(false)
+  /** 底图提示：null=正常；否则显示轻量提示（token 未配置 / 在线底图加载失败），不阻断核心内容 */
+  const [basemapNotice, setBasemapNotice] = useState<string | null>(null)
 
   useEffect(() => {
     dataRef.current = data
@@ -295,7 +300,8 @@ export default function TyphoonMap({
 
     const map = new maplibregl.Map({
       container,
-      style: MAP_STYLE_URL,
+      // 基础样式始终用本地纯色回退样式（无外部依赖）；天地图底图在 load 后按 token 叠加为栅格图层
+      style: FALLBACK_MAP_STYLE,
       center: MAP_CENTER,
       zoom: MAP_ZOOM,
       attributionControl: false,
@@ -314,23 +320,31 @@ export default function TyphoonMap({
       maxWidth: '280px',
     })
 
-    let styleLoaded = false
-    let fallbackApplied = false
     map.on('load', () => {
-      styleLoaded = true
+      // 正式底图：已配置天地图 token 才加载官方瓦片（矢量 + 注记）；未配置则保持纯色背景并轻量提示
+      if (TIANDITU_TOKEN) {
+        try {
+          map.addSource(TIANDITU_SOURCE_IDS.vec, tiandituRasterSource(TIANDITU_TOKEN, 'vec'))
+          map.addLayer(buildTiandituLayer(TIANDITU_LAYER_IDS.vec, TIANDITU_SOURCE_IDS.vec))
+          map.addSource(TIANDITU_SOURCE_IDS.cva, tiandituRasterSource(TIANDITU_TOKEN, 'cva'))
+          map.addLayer(buildTiandituLayer(TIANDITU_LAYER_IDS.cva, TIANDITU_SOURCE_IDS.cva))
+        } catch {
+          /* 底图添加失败不影响核心数据层 */
+        }
+      } else {
+        setBasemapNotice('正式底图服务尚未配置，核心科普数据仍可浏览。')
+      }
       setReady(true)
     })
     map.on('error', (e) => {
       console.warn('[map]', e.error?.message ?? e.error)
-      // 在线底图样式加载失败时回退到本地纯色样式，保证核心科普数据仍可渲染，页面不白屏
-      if (!styleLoaded && !fallbackApplied) {
-        fallbackApplied = true
-        setBasemapFallback(true)
-        try {
-          map.setStyle(FALLBACK_MAP_STYLE)
-        } catch {
-          /* 本地回退样式极少失败，忽略 */
-        }
+      // 天地图瓦片加载失败（token 无效 / 网络问题）时轻量提示，不打断核心科普内容
+      const sourceId = (e as { sourceId?: string }).sourceId
+      if (
+        TIANDITU_TOKEN &&
+        (sourceId === TIANDITU_SOURCE_IDS.vec || sourceId === TIANDITU_SOURCE_IDS.cva)
+      ) {
+        setBasemapNotice('在线基础地图暂时无法加载，核心科普内容仍可浏览。')
       }
     })
 
@@ -805,11 +819,7 @@ export default function TyphoonMap({
     <div className={styles.wrap}>
       <div ref={containerRef} className={styles.map} />
       {!ready && <div className={styles.loading}>正在初始化地图…</div>}
-      {basemapFallback && (
-        <div className={styles.basemapNotice}>
-          在线底图暂时无法加载，核心科普数据仍可正常浏览。
-        </div>
-      )}
+      {basemapNotice && <div className={styles.basemapNotice}>{basemapNotice}</div>}
     </div>
   )
 }
