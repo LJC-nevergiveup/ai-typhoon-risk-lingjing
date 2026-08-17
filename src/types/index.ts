@@ -47,6 +47,8 @@ export interface LayerDef {
   /** 图例色块颜色 */
   color: string
   hint: string
+  /** 仅 DEMO 模式使用（REAL 模式在图层面板中隐藏，避免演示图层混入正式案例） */
+  demoOnly?: boolean
 }
 
 /**

@@ -1,10 +1,12 @@
-import type { LayerId } from '../../types'
+import type { CaseKind, LayerId } from '../../types'
 import { LAYER_DEFS } from '../../data/layers'
 import styles from './LayerControl.module.css'
 
 interface LayerControlProps {
   active: LayerId[]
   onToggle: (id: LayerId) => void
+  /** 当前案例类型：REAL 模式下隐藏仅 DEMO 使用的图层 */
+  kind?: CaseKind
   /** 环境观测资料是否待接入（待接入时卫星/SST 显示提示并禁用） */
   envUnavailable?: boolean
   /** 真实卫星云图透明度（0.2–1） */
@@ -17,15 +19,17 @@ const ENV_LAYER_IDS: LayerId[] = ['envSatellite', 'envSst']
 export default function LayerControl({
   active,
   onToggle,
+  kind = 'real',
   envUnavailable = false,
   satelliteOpacity = 0.7,
   onSatelliteOpacityChange,
 }: LayerControlProps) {
+  const visibleDefs = kind === 'real' ? LAYER_DEFS.filter((l) => !l.demoOnly) : LAYER_DEFS
   return (
     <div className={styles.panel}>
       <p className={styles.title}>地图图层</p>
       <ul>
-        {LAYER_DEFS.map((layer) => {
+        {visibleDefs.map((layer) => {
           const checked = active.includes(layer.id)
           const isEnvLayer = ENV_LAYER_IDS.includes(layer.id)
           const disabled = isEnvLayer && envUnavailable

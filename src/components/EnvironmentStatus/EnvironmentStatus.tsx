@@ -18,7 +18,10 @@ function diffLabel(frameTime: string, currentTime: string | null): string {
   return `（与当前时次相差约 ${abs} 小时）`
 }
 
-/** 地图上的环境观测状态条：明确影像时间与时间差，避免用户误以为影像与轨迹点同时 */
+/**
+ * 地图上的环境观测状态条：明确影像时间、时间差与数据性质，
+ * 避免用户把「卫星观测」与「SST 日分析场」混为一谈，或误以为影像与轨迹点同时。
+ */
 export default function EnvironmentStatus({
   satelliteFrame,
   sstFrame,
@@ -30,18 +33,22 @@ export default function EnvironmentStatus({
       {satelliteFrame && (
         <p className={styles.line}>
           <span className={styles.dot} style={{ backgroundColor: '#ffffff' }} aria-hidden="true" />
-          卫星影像时间：{formatClock(satelliteFrame.timestamp, 8)}（北京）
+          卫星影像（观测）：{formatClock(satelliteFrame.timestamp, 8)}（北京）·{' '}
+          {satelliteFrame.satellite} {satelliteFrame.instrument}
           <span className={styles.diff}>{diffLabel(satelliteFrame.timestamp, currentTime)}</span>
         </p>
       )}
       {sstFrame && (
         <p className={styles.line}>
           <span className={styles.dot} style={{ backgroundColor: '#ff9e5e' }} aria-hidden="true" />
-          海表温度（SST）：{sstFrame.date}（日尺度）
+          海表温度 SST（日分析场，多源卫星融合）：{sstFrame.date} · {sstFrame.unit}
           <span className={styles.diff}>{diffLabel(`${sstFrame.date}T12:00:00Z`, currentTime)}</span>
         </p>
       )}
-      <p className={styles.source}>来源：国家卫星气象中心 · FY-4B AGRI（处理说明见信息面板）</p>
+      <p className={styles.source}>
+        卫星影像为 FY-4B AGRI 观测；SST 为 NOAA Coral Reef Watch 日分析场（非单星瞬时观测）。
+        处理与来源见信息面板「环境观测资料」。
+      </p>
     </div>
   )
 }

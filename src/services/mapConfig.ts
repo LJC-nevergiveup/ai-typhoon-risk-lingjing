@@ -1,3 +1,5 @@
+import type { StyleSpecification } from 'maplibre-gl'
+
 /**
  * 地图全局配置：底图样式、初始视角、栅格瓦片地址。
  * 替换底图/云图只需修改本文件。
@@ -6,6 +8,24 @@
 /** 底图：CARTO Dark Matter（深色海洋底图，免费，需保留署名） */
 export const MAP_STYLE_URL =
   'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'
+
+/**
+ * 底图离线回退样式：仅深色背景，不含任何外部瓦片。
+ * 当在线底图（CARTO）加载失败时启用，保证核心科普数据层（轨迹/登陆/卫星/SST/风险）
+ * 仍能在纯色背景上正常渲染，页面不白屏。
+ */
+export const FALLBACK_MAP_STYLE: StyleSpecification = {
+  version: 8,
+  name: 'fallback-background',
+  sources: {},
+  layers: [
+    {
+      id: 'background',
+      type: 'background',
+      paint: { 'background-color': '#0b1726' },
+    },
+  ],
+}
 
 export const MAP_CENTER: [number, number] = [126.5, 24.5]
 

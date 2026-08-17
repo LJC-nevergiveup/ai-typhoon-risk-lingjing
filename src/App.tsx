@@ -22,7 +22,10 @@ import EnvironmentStatus from './components/EnvironmentStatus/EnvironmentStatus'
 import styles from './App.module.css'
 
 export default function App() {
-  const [activeCaseId, setActiveCaseId] = useState<string>(TYPHOON_CASES[0].id)
+  // 正式作品默认进入真实案例（YAGI）；DEMO 仅作界面验证，处于次级位置
+  const [activeCaseId, setActiveCaseId] = useState<string>(
+    () => TYPHOON_CASES.find((c) => c.kind === 'real')?.id ?? TYPHOON_CASES[0].id,
+  )
   const [data, setData] = useState<ActiveMapData | null>(null)
   const [loadState, setLoadState] = useState<LoadState>('loading')
   const [notice, setNotice] = useState<string | null>(null)
@@ -245,6 +248,7 @@ export default function App() {
             <LayerControl
               active={activeLayers}
               onToggle={handleToggleLayer}
+              kind={activeCase.kind}
               envUnavailable={envUnavailable}
               satelliteOpacity={satelliteOpacity}
               onSatelliteOpacityChange={setSatelliteOpacity}

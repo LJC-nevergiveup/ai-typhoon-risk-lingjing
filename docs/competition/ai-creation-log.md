@@ -188,6 +188,32 @@
 
 ---
 
+## Round 7 · 投稿前总审计、地图合规、部署与打包
+
+**Prompt 关键内容（摘录）**：正式投稿前总审计；不加新数据集、不重算科学分析、不改风险阈值、不加模型/算法、不补风圈、不尝试 CMA-BST、不重构架构；默认必须进入 REAL YAGI，DEMO 次级；地图合规 P0（台湾/海南/南海诸岛/国界/审图号，不自行宣称合规）；运行时外部网络审计；底图失败降级（不白屏、不无限 loading、不显示 stack trace）；六章节评委走查；科学性全文搜索；AI 创作记录正式化 + 截图清单；数据/素材说明；性能审计；PC 布局；异常数据测试；正式 build；部署准备（Vercel/GitHub Pages）；submission 目录；BLOCKERS；最终可提交判定。
+
+**AI 参与环节**：
+- 代码修复：默认案例改为真实 YAGI（此前 `TYPHOON_CASES[0]` 为 demo-synthetic）；DEMO 卫星瓦片（NASA GIBS，固定 2025 日期）仅在 DEMO 加载；REAL 模式图层面板隐藏 demo-only 图层（卫星云图/风险分区/避险点）；底图失败自动回退本地纯色样式并提示“在线底图暂时无法加载，核心科普数据仍可正常浏览”。
+- 修正 EnvironmentStatus 状态条：明确“卫星=FY-4B AGRI 观测”“SST=NOAA Coral Reef Watch 日分析场（多源卫星融合，非单星瞬时观测）”，补齐单位 °C 与日尺度。
+- 构建剔除 `public/data/raw/` 原始大文件（Copernicus DEM / Kontur gpkg / FY-4B NC/JPG），`dist` 由 598 MB 降至 16.6 MB。
+- 生成 `docs/competition/{map-compliance,network-dependency,performance,scientific}-audit.md`、`DEPLOYMENT.md`、`BLOCKERS.md` 与 `submission/` 投稿目录。
+
+**人工核验**：
+- typecheck / build 通过；dev 重启正常（5173）。
+- 底图失败降级人工走查：error → 本地回退 + 提示，无白屏、无无限 loading、无 stack trace。
+- 全文检索：无 MOCK/TEST/PLACEHOLDER/TODO/DEBUG/localhost/开发中；无“精确/精准/官方风险/最危险/伤亡预测/实时”等敏感词；“预测”均带“示意 / 非真实集合预报”限定。
+
+**发现的问题与修正**：
+1. 默认案例是 DEMO（`TYPHOON_CASES[0]`）→ 评委若曾访问过会停留在 DEMO → 改为默认真实 YAGI。
+2. `dist` 含 `public/data/raw` 原始大文件（598 MB）→ 构建插件剔除，降至 16.6 MB，避免部署未处理原始数据。
+3. REAL 模式仍显示 DEMO 卫星图层（NASA GIBS 演示瓦片，固定 2025 日期，易被误当真实云图）→ `kind==='demo'` 守卫 + 面板隐藏。
+4. 底图失败无降级（`ready` 永假、无限“正在初始化地图”）→ 本地纯色回退 + 提示。
+5. EnvironmentStatus 把 SST 误标为 FY-4B → 修正为 NOAA CRW 日分析场（非单星瞬时观测）。
+
+**验证结果**：全部通过；科学数值零改动；仅剩 P0 = 地图底图合规需人工核查（见 map-compliance-audit.md）。
+
+---
+
 ## 关键决策记录（为什么这么做）
 
 1. **为什么拒绝伪造风圈**：YAGI 生命周期风圈数据缺失（业务通报仅有登陆时刻的少数描述，且非完整风圈序列）。制造/插值风圈会把未观测信息伪装成观测事实，违背“数值必须有来源、可追溯”。作品明确显示风圈“待接入”，并在数据模型中为 sparse 观测预留能力，禁止插值冒充完整序列。
@@ -209,5 +235,6 @@
 | 5 | 风险 QA 数值审阅 + 数据源变更如实记录 | 通过 |
 | 6 | 示意图/文案/应急包逐条核对 | 通过 |
 | 6.5 | 重跑风险管线，科学数值字节级不变 | 通过 |
+| 7 | 默认 REAL 案例 / 底图降级 / dist 剔除原始数据 / 全文科学与网络审计 | 通过 |
 
-**未解决事项**：tcdata WAF（CMA-BST 文件待人工获取，仅用于交叉核验）；风圈数据仍缺失（保持占位，未伪造/未插值）。
+**未解决事项**：地图底图合规需人工核查（P0，见 `docs/competition/map-compliance-audit.md`）；tcdata WAF（CMA-BST 文件待人工获取，仅交叉核验）；风圈数据仍缺失（保持占位，未伪造/未插值）。

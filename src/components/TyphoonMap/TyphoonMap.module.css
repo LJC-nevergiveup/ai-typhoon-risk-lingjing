@@ -20,3 +20,18 @@
   pointer-events: none;
   background: var(--c-bg);
 }
+
+.basemapNotice {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  z-index: 2;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: rgba(8, 20, 38, 0.92);
+  border: 1px solid rgba(255, 209, 102, 0.45);
+  color: #ffd166;
+  font-size: 12px;
+  max-width: 300px;
+  pointer-events: none;
+}

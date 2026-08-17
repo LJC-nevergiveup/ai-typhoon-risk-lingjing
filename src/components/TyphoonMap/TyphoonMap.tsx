@@ -12,7 +12,13 @@ import type {
   SstFrame,
   TyphoonPoint,
 } from '../../types'
-import { MAP_ATTRIBUTION, MAP_CENTER, MAP_STYLE_URL, MAP_ZOOM } from '../../services/mapConfig'
+import {
+  FALLBACK_MAP_STYLE,
+  MAP_ATTRIBUTION,
+  MAP_CENTER,
+  MAP_STYLE_URL,
+  MAP_ZOOM,
+} from '../../services/mapConfig'
 import {
   LAYER_IDS,
   LAYER_TOGGLE_MAP,
@@ -187,6 +193,7 @@ export default function TyphoonMap({
     uncertainty: false,
   })
   const [ready, setReady] = useState(false)
+  const [basemapFallback, setBasemapFallback] = useState(false)
 
   useEffect(() => {
     dataRef.current = data
@@ -307,9 +314,24 @@ export default function TyphoonMap({
       maxWidth: '280px',
     })
 
-    map.on('load', () => setReady(true))
+    let styleLoaded = false
+    let fallbackApplied = false
+    map.on('load', () => {
+      styleLoaded = true
+      setReady(true)
+    })
     map.on('error', (e) => {
       console.warn('[map]', e.error?.message ?? e.error)
+      // 在线底图样式加载失败时回退到本地纯色样式，保证核心科普数据仍可渲染，页面不白屏
+      if (!styleLoaded && !fallbackApplied) {
+        fallbackApplied = true
+        setBasemapFallback(true)
+        try {
+          map.setStyle(FALLBACK_MAP_STYLE)
+        } catch {
+          /* 本地回退样式极少失败，忽略 */
+        }
+      }
     })
 
     return () => {
@@ -370,8 +392,11 @@ export default function TyphoonMap({
       map.addLayer(buildWindRingsOutlineLayer())
     }
 
-    map.addSource(SOURCE_IDS.satellite, SATELLITE_SOURCE_SPEC)
-    map.addLayer(buildSatelliteLayer())
+    // 演示卫星瓦片（NASA GIBS）仅 DEMO 使用；REAL 模式不接入，避免外部依赖与误当作真实云图
+    if (data.kind === 'demo') {
+      map.addSource(SOURCE_IDS.satellite, SATELLITE_SOURCE_SPEC)
+      map.addLayer(buildSatelliteLayer())
+    }
 
     if (data.riskZones) {
       map.addSource(SOURCE_IDS.riskZones, { type: 'geojson', data: data.riskZones })
@@ -780,6 +805,11 @@ export default function TyphoonMap({
     <div className={styles.wrap}>
       <div ref={containerRef} className={styles.map} />
       {!ready && <div className={styles.loading}>正在初始化地图…</div>}
+      {basemapFallback && (
+        <div className={styles.basemapNotice}>
+          在线底图暂时无法加载，核心科普数据仍可正常浏览。
+        </div>
+      )}
     </div>
   )
 }

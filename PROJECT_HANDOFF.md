@@ -161,6 +161,8 @@ REAL 数据包内容与状态（磁盘已核对）：
 5. **Round 4**：FY-4B 真彩 6 帧（重投影+几何验证）；SST 展示层（FY-4B 观测证据 + NOAA CRW 分析场）；章节 01 三步科普；环境观测状态条。
 6. **Round 5**：风险分析（DEM/人口/邻近度三因子 + 确定性关注分级 + 点击查询 + AOI 边界）。
 7. **Round 6**：02 机制科普与示意图层、05 AI 工作流与“不可直接相信”案例、06 四情境+应急包+预警科普；首次引导、章节过渡故事线、已读标记。
+8. **Round 6.5**：提交前溯源与文档一致性清理（WorldPop→Kontur 口径、sources.json 包装、cases.ts 状态、README/日志、风险管线重跑字节级一致）。
+9. **Round 7**：投稿前总审计与打包（默认 REAL 案例、底图失败降级、dist 剔除原始大文件 598MB→16.6MB、地图合规/网络/性能/科学性四份审计、DEPLOYMENT/BLOCKERS、submission/ 目录）。
 
 # Key Numerical Results
 
@@ -246,6 +248,8 @@ REAL 数据包内容与状态（磁盘已核对）：
 - SST 展示层与 FY-4B 观测来源不同（已在 sources/manifest 记录）。
 - HMR 陈旧会话问题（解决方式：重启 dev server + Ctrl+F5）。
 - 构建产物存在 chunk>500kB 提示（maplibre 本体约 1MB，可接受）。
+- **P0：地图底图合规需人工核查**（CARTO Dark Matter 为 OSM 派生，无中国审图号；见 docs/competition/map-compliance-audit.md）。
+- 作者/团队名与正式 URL 待人工填写（submission/ 内 TODO_USER_FILL / website-link.txt）。
 
 # Pending Tasks
 
@@ -290,7 +294,7 @@ REAL 数据包内容与状态（磁盘已核对）：
 
 ## Git 信息（本文件生成时）
 
-- 仓库：本会话交接时执行 `git init`（此前从未建库）。
-- Branch：`master`；最近提交：`5b99585 Initial commit: AI typhoon risk realm - six-chapter science communication web app (Rounds 1-6 complete)`（99 个文件，13,785 行）。
-- 工作区：初始提交后干净（无未提交修改）。
-- 已按 .gitignore 排除：node_modules、dist、.npm-cache、大体积原始二进制（raw 下 tif/NC/JPG/gpkg.gz/zip）与用户备份（卫星云图.zip、卫星云图/）。这些文件仍保留在磁盘，但不在版本库中。
+- Branch：`master`；提交链：`5b99585 Initial commit` → `c03b497 docs: update handoff` →
+  `870f8bb fix: align provenance and release documentation`（Round 6.5）。
+- 标签：`release-r6.5`（指向 870f8bb 的 release checkpoint）。
+- Round 7 的代码与文档改动在本次会话末尾统一提交；不 push、不建远程仓库。
